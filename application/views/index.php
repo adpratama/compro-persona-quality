@@ -16,7 +16,7 @@
 
 	<!-- Favicon
 ================================================== -->
-	<link rel="icon" type="image/png" href="<?= base_url('assets/front/') ?>images/favicon.png">
+	<link rel="icon" type="image/png" href="<?= base_url('assets/front/') ?>images/logo.png">
 
 	<!-- CSS
 ================================================== -->
@@ -45,7 +45,7 @@
 					<div class="col-lg-8 col-md-8">
 						<ul class="top-info text-center text-md-left">
 							<li><i class="fas fa-map-marker-alt"></i>
-								<p class="info-text">Parit Indah, Pekanbaru</p>
+								<p class="info-text">Jl. Parit Indah, Komplek Perkantoran Grand Sudirman, Blok B-7, Pekanbaru</p>
 							</li>
 						</ul>
 					</div>
@@ -86,7 +86,8 @@
 								<a class="d-block" href="index.html">
 									<img loading="lazy" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
 								</a>
-							</div><!-- logo end -->
+							</div>
+							<!-- logo end -->
 
 							<div class="col-lg-9 header-right">
 								<ul class="top-info-box">
@@ -110,14 +111,29 @@
 										</div>
 									</li>
 									<li class="header-get-a-quote">
-										<a class="btn btn-primary" href="contact.html">Get A Quote</a>
+										<?php
+										if (empty($this->session->userdata('username'))) {
+											$url_auth = base_url('auth');
+											$url_text = "Masuk";
+										} else {
+											$url_auth = base_url('dashboard');
+											$url_text = "Dashboard"; ?>
+										<?php
+										}
+										?>
+										<a class="btn btn-primary" href="<?= $url_auth ?>"><?= $url_text ?></a>
 									</li>
-								</ul><!-- Ul end -->
-							</div><!-- header right end -->
-						</div><!-- logo area end -->
+								</ul>
+								<!-- Ul end -->
+							</div>
+							<!-- header right end -->
+						</div>
+						<!-- logo area end -->
 
-					</div><!-- Row end -->
-				</div><!-- Container end -->
+					</div>
+					<!-- Row end -->
+				</div>
+				<!-- Container end -->
 			</div>
 
 			<div class="site-navigation">
@@ -202,14 +218,16 @@
 
 					<div class="nav-search">
 						<span id="search"><i class="fa fa-search"></i></span>
-					</div><!-- Search end -->
+					</div>
+					<!-- Search end -->
 
 					<div class="search-block" style="display: none;">
 						<label for="search-field" class="w-100 mb-0">
 							<input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
 						</label>
 						<span class="search-close">&times;</span>
-					</div><!-- Site search end -->
+					</div>
+					<!-- Site search end -->
 				</div>
 				<!--/ Container end -->
 
@@ -280,28 +298,33 @@
 							<div class="call-to-action-text">
 								<h3 class="action-title">We understand your needs on construction</h3>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 						<div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
 							<div class="call-to-action-btn">
 								<a class="btn btn-dark" href="#">Request Quote</a>
 							</div>
-						</div><!-- col end -->
-					</div><!-- row end -->
-				</div><!-- Action style box -->
-			</div><!-- Container end -->
-		</section><!-- Action end -->
+						</div>
+						<!-- col end -->
+					</div>
+					<!-- row end -->
+				</div>
+				<!-- Action style box -->
+			</div>
+			<!-- Container end -->
+		</section>
+		<!-- Action end -->
 
 		<section id="ts-features" class="ts-features">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="ts-intro">
-							<h2 class="into-title">About Us</h2>
-							<h3 class="into-sub-title">We deliver landmark projects</h3>
-							<p>We are rethoric question ran over her cheek When she reached the first hills of the Italic Mountains,
-								she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village
-								and the subline of her own road, the Line Lane.</p>
-						</div><!-- Intro box end -->
+							<h2 class="into-title">Tentang Kami</h2>
+							<h3 class="into-sub-title">Persona Quality</h3>
+							<p>Pusat layanan psikologi Persona Quality yang berkantor pusat di Pekanbaru. Didirikan pada bulan September 2003 didasarkan pada idealisme beberapa orang Psikolog yang berpengalaman di universitas, klinik/rumah sakit, perusahaan maupun biro layanan psikologi. Dengan semboyan Partner for Improvement, Persona Quality ingin ikut terlibat dalam proses pengembangan sumber daya manusia di Riau.</p>
+						</div>
+						<!-- Intro box end -->
 
 						<div class="gap-20"></div>
 
@@ -314,8 +337,10 @@
 									<div class="ts-service-box-content">
 										<h3 class="service-box-title">We've Repution for Excellence</h3>
 									</div>
-								</div><!-- Service 1 end -->
-							</div><!-- col end -->
+								</div>
+								<!-- Service 1 end -->
+							</div>
+							<!-- col end -->
 
 							<div class="col-md-6">
 								<div class="ts-service-box">
@@ -325,9 +350,12 @@
 									<div class="ts-service-box-content">
 										<h3 class="service-box-title">We Build Partnerships</h3>
 									</div>
-								</div><!-- Service 2 end -->
-							</div><!-- col end -->
-						</div><!-- Content row 1 end -->
+								</div>
+								<!-- Service 2 end -->
+							</div>
+							<!-- col end -->
+						</div>
+						<!-- Content row 1 end -->
 
 						<div class="row">
 							<div class="col-md-6">
@@ -338,8 +366,10 @@
 									<div class="ts-service-box-content">
 										<h3 class="service-box-title">Guided by Commitment</h3>
 									</div>
-								</div><!-- Service 1 end -->
-							</div><!-- col end -->
+								</div>
+								<!-- Service 1 end -->
+							</div>
+							<!-- col end -->
 
 							<div class="col-md-6">
 								<div class="ts-service-box">
@@ -349,10 +379,14 @@
 									<div class="ts-service-box-content">
 										<h3 class="service-box-title">A Team of Professionals</h3>
 									</div>
-								</div><!-- Service 2 end -->
-							</div><!-- col end -->
-						</div><!-- Content row 1 end -->
-					</div><!-- Col end -->
+								</div>
+								<!-- Service 2 end -->
+							</div>
+							<!-- col end -->
+						</div>
+						<!-- Content row 1 end -->
+					</div>
+					<!-- Col end -->
 
 					<div class="col-lg-6 mt-4 mt-lg-0">
 						<h3 class="into-sub-title">Our Values</h3>
@@ -405,10 +439,14 @@
 						</div>
 						<!--/ Accordion end -->
 
-					</div><!-- Col end -->
-				</div><!-- Row end -->
-			</div><!-- Container end -->
-		</section><!-- Feature are end -->
+					</div>
+					<!-- Col end -->
+				</div>
+				<!-- Row end -->
+			</div>
+			<!-- Container end -->
+		</section>
+		<!-- Feature are end -->
 
 		<section id="facts" class="facts-area dark-bg">
 			<div class="container">
@@ -422,7 +460,8 @@
 								<h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
 								<h3 class="ts-facts-title">Total Projects</h3>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 
 						<div class="col-md-3 col-sm-6 ts-facts mt-5 mt-sm-0">
 							<div class="ts-facts-img">
@@ -432,7 +471,8 @@
 								<h2 class="ts-facts-num"><span class="counterUp" data-count="647">0</span></h2>
 								<h3 class="ts-facts-title">Staff Members</h3>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 
 						<div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
 							<div class="ts-facts-img">
@@ -442,7 +482,8 @@
 								<h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
 								<h3 class="ts-facts-title">Hours of Work</h3>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 
 						<div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
 							<div class="ts-facts-img">
@@ -452,407 +493,310 @@
 								<h2 class="ts-facts-num"><span class="counterUp" data-count="44">0</span></h2>
 								<h3 class="ts-facts-title">Countries Experience</h3>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 
 					</div> <!-- Facts end -->
 				</div>
 				<!--/ Content row end -->
 			</div>
 			<!--/ Container end -->
-		</section><!-- Facts end -->
+		</section>
+		<!-- Facts end -->
 
 		<section id="ts-service-area" class="ts-service-area pb-0">
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-12">
 						<h2 class="section-title">We Are Specialists In</h2>
-						<h3 class="section-sub-title">What We Do</h3>
+						<h3 class="section-sub-title">One Stop Psychological Services</h3>
 					</div>
 				</div>
 				<!--/ Title row end -->
 
 				<div class="row">
-					<div class="col-lg-4">
-						<div class="ts-service-box d-flex">
-							<div class="ts-service-box-img">
-								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1.png" alt="service-icon">
-							</div>
-							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Home Construction</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-							</div>
-						</div><!-- Service 1 end -->
-
-						<div class="ts-service-box d-flex">
-							<div class="ts-service-box-img">
-								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2.png" alt="service-icon">
-							</div>
-							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Building Remodels</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-							</div>
-						</div><!-- Service 2 end -->
-
-						<div class="ts-service-box d-flex">
-							<div class="ts-service-box-img">
-								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
-							</div>
-							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Interior Design</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
-							</div>
-						</div><!-- Service 3 end -->
-
-					</div><!-- Col end -->
-
-					<div class="col-lg-4 text-center">
-						<img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/services/service-center.jpg" alt="service-avater-image">
-					</div><!-- Col end -->
-
-					<div class="col-lg-4 mt-5 mt-lg-0 mb-4 mb-lg-0">
+					<div class="col-lg-3">
 						<div class="ts-service-box d-flex">
 							<div class="ts-service-box-img">
 								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon4.png" alt="service-icon">
 							</div>
 							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Exterior Design</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
+								<h3 class="service-box-title"><a href="#">Sistem Pengelolaan SDM</a></h3>
+								<p>Membantu perusahaan untuk merancang dan membuat peraturan perusahaan, analisa dan uraian jabatan, sistem penggajian, performance appraisal, perencanaan karir dan penelitian</p>
 							</div>
-						</div><!-- Service 4 end -->
-
+						</div>
+						<!-- Service 4 end -->
+					</div>
+					<div class="col-lg-3">
 						<div class="ts-service-box d-flex">
 							<div class="ts-service-box-img">
 								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon5.png" alt="service-icon">
 							</div>
 							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Renovation</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
+								<h3 class="service-box-title"><a href="#">Rekrutmen</a></h3>
+								<p>Psikotes dan wawancara STAR. Psikotes untuk pengukuran IQ, EQ, bakat dan kemampuan khusus dikaitkan dengan deskripsi kerja, gaya/sikap kerja, kemampuan adaptasi/interaksi, aspek-aspek kepribadian dikaitkan dengan deskripsi kerja</p>
 							</div>
-						</div><!-- Service 5 end -->
-
+						</div>
+						<!-- Service 5 end -->
+					</div>
+					<div class="col-lg-3">
 						<div class="ts-service-box d-flex">
 							<div class="ts-service-box-img">
 								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
 							</div>
 							<div class="ts-service-box-info">
-								<h3 class="service-box-title"><a href="#">Safety Management</a></h3>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit Integer adipiscing erat</p>
+								<h3 class="service-box-title"><a href="#">Evaluasi</a></h3>
+								<p>Kegiatan penilaian, kinerja dimaksudkan untuk mengukur kinerja masing-masing tenaga kerja dalam mengembangkan dan meningkatkan kualitas kerja, 1. Assesment Competency; 2. Assessment Center</p>
 							</div>
-						</div><!-- Service 6 end -->
-					</div><!-- Col end -->
-				</div><!-- Content row end -->
-
-			</div>
-			<!--/ Container end -->
-		</section><!-- Service end -->
-
-		<section id="project-area" class="project-area solid-bg">
-			<div class="container">
-				<div class="row text-center">
-					<div class="col-lg-12">
-						<h2 class="section-title">Work of Excellence</h2>
-						<h3 class="section-sub-title">Recent Projects</h3>
-					</div>
-				</div>
-				<!--/ Title row end -->
-
-				<div class="row">
-					<div class="col-12">
-						<div class="shuffle-btn-group">
-							<label class="active" for="all">
-								<input type="radio" name="shuffle-filter" id="all" value="all" checked="checked">Show All
-							</label>
-							<label for="commercial">
-								<input type="radio" name="shuffle-filter" id="commercial" value="commercial">Commercial
-							</label>
-							<label for="education">
-								<input type="radio" name="shuffle-filter" id="education" value="education">Education
-							</label>
-							<label for="government">
-								<input type="radio" name="shuffle-filter" id="government" value="government">Government
-							</label>
-							<label for="infrastructure">
-								<input type="radio" name="shuffle-filter" id="infrastructure" value="infrastructure">Infrastructure
-							</label>
-							<label for="residential">
-								<input type="radio" name="shuffle-filter" id="residential" value="residential">Residential
-							</label>
-							<label for="healthcare">
-								<input type="radio" name="shuffle-filter" id="healthcare" value="healthcare">Healthcare
-							</label>
-						</div><!-- project filter end -->
-
-
-						<div class="row shuffle-wrapper">
-							<div class="col-1 shuffle-sizer"></div>
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;government&quot;,&quot;healthcare&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project1.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project1.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">Capital Teltway Building</a>
-											</h3>
-											<p class="project-cat">Commercial, Interiors</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 1 end -->
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;healthcare&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project2.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project2.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">Ghum Touch Hospital</a>
-											</h3>
-											<p class="project-cat">Healthcare</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 2 end -->
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;commercial&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project3.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project3.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">TNT East Facility</a>
-											</h3>
-											<p class="project-cat">Government</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 3 end -->
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;education&quot;,&quot;infrastructure&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project4.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project4.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">Narriot Headquarters</a>
-											</h3>
-											<p class="project-cat">Infrastructure</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 4 end -->
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;infrastructure&quot;,&quot;education&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project5.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project5.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">Kalas Metrorail</a>
-											</h3>
-											<p class="project-cat">Infrastructure</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 5 end -->
-
-							<div class="col-lg-4 col-md-6 shuffle-item" data-groups="[&quot;residential&quot;]">
-								<div class="project-img-container">
-									<a class="gallery-popup" href="<?= base_url('assets/front/') ?>images/projects/project6.jpg" aria-label="project-img">
-										<img class="img-fluid" src="<?= base_url('assets/front/') ?>images/projects/project6.jpg" alt="project-img">
-										<span class="gallery-icon"><i class="fa fa-plus"></i></span>
-									</a>
-									<div class="project-item-info">
-										<div class="project-item-info-content">
-											<h3 class="project-item-title">
-												<a href="projects-single.html">Ancraft Avenue House</a>
-											</h3>
-											<p class="project-cat">Residential</p>
-										</div>
-									</div>
-								</div>
-							</div><!-- shuffle item 6 end -->
-						</div><!-- shuffle end -->
-					</div>
-
-					<div class="col-12">
-						<div class="general-btn text-center">
-							<a class="btn btn-primary" href="projects.html">View All Projects</a>
 						</div>
 					</div>
+					<div class="col-lg-3">
+						<div class="ts-service-box d-flex">
+							<div class="ts-service-box-img">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">Coaching</a></h3>
+								<p>Coaching adalah media bagi manager untuk memberikan arahan, pemahaman dan dorongan kepada karyawannya untuk memperbaiki kinerja melalui interaksi intensif</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="ts-service-box d-flex">
+							<div class="ts-service-box-img">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">Konseling</a></h3>
+								<p>Konseling adalah layanan konsultasi baik dalam bentuk konseling maupun terapi psikologi jika dibutuhkan</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="ts-service-box d-flex">
+							<div class="ts-service-box-img">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">Training</a></h3>
+								<p>Training yang dilakukan untuk meningkatkan kompetensi karyawan dalam mengatasi tugas diposisi yang dituju</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="ts-service-box d-flex">
+							<div class="ts-service-box-img">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2.png" alt="service-icon">
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">Seminar</a></h3>
+								<p>Memberikan ceramah dan seminar sesuai kebutuhan dan permintaan klien</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="ts-service-box d-flex">
+							<div class="ts-service-box-img">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1.png" alt="service-icon">
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">Persiapan Pensiun</a></h3>
+								<p>Pelatihan untuk mempersiapkan karyawan agar dapat menyesuaikan diri dengan masa pensiun</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Content row end -->
 
-				</div><!-- Content row end -->
 			</div>
 			<!--/ Container end -->
-		</section><!-- Project area end -->
+		</section>
+		<!-- Service end -->
 
 		<section class="content">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-6">
-						<h3 class="column-title">Testimonials</h3>
-
-						<div id="testimonial-slide" class="testimonial-slide">
-							<div class="item">
-								<div class="quote-item">
-									<span class="quote-text">
-										Question ran over her cheek When she reached the first hills of the Italic Mountains, she had a last
-										view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the
-										subline of her own road.
-									</span>
-
-									<div class="quote-item-footer">
-										<img loading="lazy" class="testimonial-thumb" src="<?= base_url('assets/front/') ?>images/clients/testimonial1.png" alt="testimonial">
-										<div class="quote-item-info">
-											<h3 class="quote-author">Gabriel Denis</h3>
-											<span class="quote-subtext">Chairman, OKT</span>
-										</div>
-									</div>
-								</div><!-- Quote item end -->
-							</div>
-							<!--/ Item 1 end -->
-
-							<div class="item">
-								<div class="quote-item">
-									<span class="quote-text">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-										labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris
-										nisi aliquip consequat.
-									</span>
-
-									<div class="quote-item-footer">
-										<img loading="lazy" class="testimonial-thumb" src="<?= base_url('assets/front/') ?>images/clients/testimonial2.png" alt="testimonial">
-										<div class="quote-item-info">
-											<h3 class="quote-author">Weldon Cash</h3>
-											<span class="quote-subtext">CFO, First Choice</span>
-										</div>
-									</div>
-								</div><!-- Quote item end -->
-							</div>
-							<!--/ Item 2 end -->
-
-							<div class="item">
-								<div class="quote-item">
-									<span class="quote-text">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-										labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitoa tion ullamco laboris
-										nisi ut commodo consequat.
-									</span>
-
-									<div class="quote-item-footer">
-										<img loading="lazy" class="testimonial-thumb" src="<?= base_url('assets/front/') ?>images/clients/testimonial3.png" alt="testimonial">
-										<div class="quote-item-info">
-											<h3 class="quote-author">Minter Puchan</h3>
-											<span class="quote-subtext">Director, AKT</span>
-										</div>
-									</div>
-								</div><!-- Quote item end -->
-							</div>
-							<!--/ Item 3 end -->
-
-						</div>
-						<!--/ Testimonial carousel end-->
-					</div><!-- Col end -->
-
-					<div class="col-lg-6 mt-5 mt-lg-0">
+					<div class="col-lg-12 mt-5 mt-lg-0">
 
 						<h3 class="column-title">Happy Clients</h3>
 
 						<div class="row all-clients">
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client1.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_chevron.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 1 end -->
+							</div>
+							<!-- Client 1 end -->
 
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client2.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_ptpn5.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 2 end -->
+							</div>
+							<!-- Client 2 end -->
 
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client3.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_agung_toyota.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 3 end -->
+							</div>
+							<!-- Client 3 end -->
 
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client4.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_brk.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 4 end -->
+							</div>
+							<!-- Client 4 end -->
 
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client5.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_provinsi_riau.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 5 end -->
+							</div>
+							<!-- Client 5 end -->
 
-							<div class="col-sm-4 col-6">
+							<div class="col-sm-3 col-6">
 								<figure class="clients-logo">
-									<a href="#!"><img loading="lazy" class="img-fluid" src="<?= base_url('assets/front/') ?>images/clients/client6.png" alt="clients-logo" /></a>
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_rsud_aa.png" alt="clients-logo" /></a>
 								</figure>
-							</div><!-- Client 6 end -->
+							</div>
 
-						</div><!-- Clients row end -->
+							<div class="col-sm-3 col-6">
+								<figure class="clients-logo">
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_capella_group.png" alt="clients-logo" /></a>
+								</figure>
+							</div>
 
-					</div><!-- Col end -->
+							<div class="col-sm-3 col-6">
+								<figure class="clients-logo">
+									<a href="#!"><img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/logo_bri_syariah.png" alt="clients-logo" /></a>
+								</figure>
+							</div>
+							<!-- Client 6 end -->
 
-				</div>
-				<!--/ Content row end -->
-			</div>
-			<!--/ Container end -->
-		</section><!-- Content end -->
-
-		<section class="subscribe no-padding">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-4">
-						<div class="subscribe-call-to-acton">
-							<h3>Can We Help?</h3>
-							<h4>(+9) 847-291-4353</h4>
 						</div>
-					</div><!-- Col end -->
+						<!-- Clients row end -->
 
-					<div class="col-lg-8">
-						<div class="ts-newsletter row align-items-center">
-							<div class="col-md-5 newsletter-introtext">
-								<h4 class="text-white mb-0">Newsletter Sign-up</h4>
-								<p class="text-white">Latest updates and news</p>
-							</div>
-
-							<div class="col-md-7 newsletter-form">
-								<form action="#" method="post">
-									<div class="form-group">
-										<label for="newsletter-email" class="content-hidden">Newsletter Email</label>
-										<input type="email" name="email" id="newsletter-email" class="form-control form-control-lg" placeholder="Your your email and hit enter" autocomplete="off">
-									</div>
-								</form>
-							</div>
-						</div><!-- Newsletter end -->
-					</div><!-- Col end -->
-
-				</div><!-- Content row end -->
+					</div>
+				</div>
 			</div>
 			<!--/ Container end -->
 		</section>
-		<!--/ subscribe end -->
+		<!-- Content end -->
+
+		<section id="main-container" class="main-container pb-4">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-lg-12">
+						<h3 class="section-sub-title">Our Teams</h3>
+					</div>
+				</div>
+				<!--/ Title row end -->
+
+				<div class="row justify-content-center">
+					<div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+						<div class="ts-team-wrapper">
+							<div class="team-img-wrapper">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team4.jpg" class="img-fluid" alt="team-img" />
+							</div>
+							<div class="ts-team-content-classic">
+								<h3 class="ts-name">Dra. Rumondang J.K Napitu, M.Si., Psikolog</h3>
+								<p class="ts-designation">Psikolog</p>
+								<p class="ts-description">
+									Nats Stenman began his career in construction with
+									boots on the ground
+								</p>
+								<div class="team-social-icons">
+									<a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+								</div>
+								<!--/ social-icons-->
+							</div>
+						</div>
+						<!--/ Team wrapper 3 end -->
+					</div>
+					<!-- Col end -->
+
+					<div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+						<div class="ts-team-wrapper">
+							<div class="team-img-wrapper">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team3.jpg" class="img-fluid" alt="team-img" />
+							</div>
+							<div class="ts-team-content-classic">
+								<h3 class="ts-name">Drs. Agus Tiandri. S.Psi, M.Psi, Psikolog</h3>
+								<p class="ts-designation">Psikolog</p>
+								<p class="ts-description">
+									Nats Stenman began his career in construction with
+									boots on the ground
+								</p>
+								<div class="team-social-icons">
+									<a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+								</div>
+								<!--/ social-icons-->
+							</div>
+						</div>
+						<!--/ Team wrapper 4 end -->
+					</div>
+					<!-- Col end -->
+
+					<div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+						<div class="ts-team-wrapper">
+							<div class="team-img-wrapper">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team5.jpg" class="img-fluid" alt="team-img" />
+							</div>
+							<div class="ts-team-content-classic">
+								<h3 class="ts-name">Hotmaida Dasalak, S.Psi., M.Si., Psikolog</h3>
+								<p class="ts-designation">Psikolog</p>
+								<p class="ts-description">
+									Nats Stenman began his career in construction with
+									boots on the ground
+								</p>
+								<div class="team-social-icons">
+									<a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+								</div>
+								<!--/ social-icons-->
+							</div>
+						</div>
+						<!--/ Team wrapper 5 end -->
+					</div>
+					<!-- Col end -->
+
+					<div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+						<div class="ts-team-wrapper">
+							<div class="team-img-wrapper">
+								<img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team2.jpg" class="img-fluid" alt="team-img" />
+							</div>
+							<div class="ts-team-content-classic">
+								<h3 class="ts-name">Dewi Amalia, S.Psi., M.Psi., Psikolog</h3>
+								<p class="ts-designation">Psikolog</p>
+								<p class="ts-description">
+									Nats Stenman began his career in construction with
+									boots on the ground
+								</p>
+								<div class="team-social-icons">
+									<a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
+									<a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+								</div>
+								<!--/ social-icons-->
+							</div>
+						</div>
+						<!--/ Team wrapper 6 end -->
+					</div>
+					<!-- Col end -->
+				</div>
+				<!-- Content row end -->
+			</div>
+			<!-- Container end -->
+		</section>
 
 		<section id="news" class="news">
 			<div class="container">
@@ -882,8 +826,10 @@
 									</span>
 								</div>
 							</div>
-						</div><!-- Latest post end -->
-					</div><!-- 1st post col end -->
+						</div>
+						<!-- Latest post end -->
+					</div>
+					<!-- 1st post col end -->
 
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="latest-post">
@@ -902,8 +848,10 @@
 									</span>
 								</div>
 							</div>
-						</div><!-- Latest post end -->
-					</div><!-- 2nd post col end -->
+						</div>
+						<!-- Latest post end -->
+					</div>
+					<!-- 2nd post col end -->
 
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="latest-post">
@@ -922,8 +870,10 @@
 									</span>
 								</div>
 							</div>
-						</div><!-- Latest post end -->
-					</div><!-- 3rd post col end -->
+						</div>
+						<!-- Latest post end -->
+					</div>
+					<!-- 3rd post col end -->
 				</div>
 				<!--/ Content row end -->
 
@@ -942,7 +892,7 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
 							<h3 class="widget-title">About Us</h3>
-							<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/footer-logo.png" alt="Constra">
+							<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
 								labore et dolore magna aliqua.</p>
 							<div class="footer-social">
@@ -953,8 +903,10 @@
 									<li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
 									<li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
 								</ul>
-							</div><!-- Footer social end -->
-						</div><!-- Col end -->
+							</div>
+							<!-- Footer social end -->
+						</div>
+						<!-- Col end -->
 
 						<div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
 							<h3 class="widget-title">Working Hours</h3>
@@ -965,7 +917,8 @@
 								<br> Saturday: <span class="text-right">12:00 - 15:00</span>
 								<br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
 							</div>
-						</div><!-- Col end -->
+						</div>
+						<!-- Col end -->
 
 						<div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
 							<h3 class="widget-title">Services</h3>
@@ -976,10 +929,14 @@
 								<li><a href="service-single.html">Design and Build</a></li>
 								<li><a href="service-single.html">Self-Perform Construction</a></li>
 							</ul>
-						</div><!-- Col end -->
-					</div><!-- Row end -->
-				</div><!-- Container end -->
-			</div><!-- Footer main end -->
+						</div>
+						<!-- Col end -->
+					</div>
+					<!-- Row end -->
+				</div>
+				<!-- Container end -->
+			</div>
+			<!-- Footer main end -->
 
 			<div class="copyright">
 				<div class="container">
@@ -1009,7 +966,8 @@
 								</ul>
 							</div>
 						</div>
-					</div><!-- Row end -->
+					</div>
+					<!-- Row end -->
 
 					<div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
 						<button class="btn btn-primary" title="Back to Top">
@@ -1017,9 +975,12 @@
 						</button>
 					</div>
 
-				</div><!-- Container end -->
-			</div><!-- Copyright end -->
-		</footer><!-- Footer end -->
+				</div>
+				<!-- Container end -->
+			</div>
+			<!-- Copyright end -->
+		</footer>
+		<!-- Footer end -->
 
 
 		<!-- Javascript Files
@@ -1046,7 +1007,8 @@
 		<!-- Template custom -->
 		<script src="<?= base_url('assets/front/') ?>js/script.js"></script>
 
-	</div><!-- Body inner end -->
+	</div>
+	<!-- Body inner end -->
 </body>
 
 </html>

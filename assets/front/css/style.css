@@ -302,6 +302,7 @@ a:focus {
 
 /* Column title */
 .column-title {
+  text-align: center;
   margin: 0 0 40px;
 }
 
@@ -2186,7 +2187,7 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 /* Clients */
 .clients-logo {
   margin: 0 0 30px;
-  border: 1px solid #dadada;
+  /* border: 1px solid #dadada; */
   min-height: 105px;
   padding: 0 30px;
   display: flex;
@@ -2197,10 +2198,10 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
 }
 
 .clients-logo img {
-  -webkit-filter: grayscale(100%);
+  /* -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   -webkit-filter: gray;
-  filter: gray;
+  filter: gray; */
 }
 
 /* Testimonial
@@ -2472,7 +2473,7 @@ img.testimonial-thumb {
 /* Footer about us */
 .footer-logo {
   margin-bottom: 25px;
-  max-height: 35px;
+  max-height: 200px;
 }
 
 /* Footer social */
