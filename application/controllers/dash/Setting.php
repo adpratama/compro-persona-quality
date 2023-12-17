@@ -28,88 +28,32 @@ class Setting extends CI_Controller
             'title' => 'Settings',
             'pages' => 'pages/dashboard/setting/v_setting',
             'settings' => $this->M_Setting->list(),
+            'visi' => $this->M_Setting->setting('visi'),
+            'misi' => $this->M_Setting->setting('misi'),
         ];
 
         $this->load->view('pages/dashboard/index', $data);
     }
 
-    public function store()
+    public function update_visimisi()
     {
-        $old_slug = $this->uri->segment(4);
+        $now = date('Y-m-d H:i:s');
 
-        $this->form_validation->set_rules('client_name', 'Client Name ', 'required');
-        // $this->form_validation->set_rules('client_logo', 'Client Logo ', 'required');
+        $data_visi = array(
+            'content' => trim($this->input->post('visi')),
+            'updated_at' => $now
+        );
 
-        if ($this->form_validation->run() ===  FALSE) {
+        $data_misi = array(
+            'content' => trim($this->input->post('misi')),
+            'updated_at' => $now
+        );
 
-            $this->session->set_flashdata('message_error', trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], validation_errors())));
+        echo '<pre>';
+        print_r($data_visi);
+        echo '</pre>';
+        exit;
 
-            redirect($_SERVER['HTTP_REFERER']);
-        } else {
-
-            $user_id = $this->session->userdata('user_id');
-            $client_name = trim($this->input->post('client_name'));
-
-            // pembuatan slug dari nama produk
-            $out = explode(" ", $client_name);
-            $slug = preg_replace("/[^A-Za-z0-9\-]/", "", strtolower(implode("-", $out)));
-
-            $now = date('Y-m-d H:i:s');
-
-            if ($old_slug) {
-            } else {
-
-                $query_check = $this->M_Client->is_available($slug);
-
-                $hasil = $query_check["id"];
-
-                if ($hasil > 0) {
-                    $this->session->set_flashdata('message_error', 'The client is already available.');
-                    redirect('dash/client');
-                } else {
-
-                    $photo = $_FILES['client_logo']['name']; // Nama file 
-
-                    // print_r($photo);
-                    // exit;
-                    // Mendapatkan extension
-                    $pathInfo = pathinfo($photo);
-                    $extension = $pathInfo['extension']; // Extension file
-                    $newPhotoFileName = $slug . '.' . $extension;
-
-                    $config = array(
-                        'upload_path' => 'assets/front/images/clients/',
-                        'allowed_types' => "png|PNG",
-                        'overwrite' => TRUE,
-                        'max_size' => "99999999999",
-                        'max_height' => "2000",
-                        'max_width' => "2500",
-                        'file_name' => $newPhotoFileName
-                    );
-
-                    $this->load->library('upload', $config);
-
-                    if (!$this->upload->do_upload('client_logo')) {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        $this->session->set_flashdata('message_error', 'Error message: ' . $this->upload->display_errors());
-
-                        // After that you need to used redirect function instead of load view such as 
-                        redirect($_SERVER['HTTP_REFERER'], $error);
-                    } else {
-
-                        $data = [
-                            'name' => $client_name,
-                            'logo' => $newPhotoFileName,
-                            'slug' => trim($slug),
-                            'created_at' => $now,
-                            'created_by' => $user_id,
-                        ];
-
-                        $this->M_Client->add_client($data);
-                    }
-                }
-            }
-        }
+        $this->M_Setting->update_visimisi($data_visi, $data_misi);
     }
 }
