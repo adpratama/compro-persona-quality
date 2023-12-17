@@ -2189,7 +2189,8 @@ ul.navbar-nav>li.header-get-a-quote:hover>a:after {
   margin: 0 0 30px;
   /* border: 1px solid #dadada; */
   min-height: 105px;
-  padding: 0 30px;
+  /* padding: 0 30px; */
+  padding: 0 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
