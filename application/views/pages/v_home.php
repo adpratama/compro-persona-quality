@@ -84,7 +84,7 @@
                 <div class="ts-intro">
                     <h2 class="into-title">Tentang Kami</h2>
                     <h3 class="into-sub-title">Persona Quality</h3>
-                    <p>Pusat layanan psikologi Persona Quality yang berkantor pusat di Pekanbaru. Didirikan pada bulan September 2003 didasarkan pada idealisme beberapa orang Psikolog yang berpengalaman di universitas, klinik/rumah sakit, perusahaan maupun biro layanan psikologi. Dengan semboyan Partner for Improvement, Persona Quality ingin ikut terlibat dalam proses pengembangan sumber daya manusia di Riau.</p>
+                    <?= $tentang['content'] ?>
                 </div>
                 <!-- Intro box end -->
 
@@ -155,49 +155,29 @@
                 <p>Dalam memberikan jasanya, Persona Quality memegang teguh nilai-nilai yang dianutnya.</p>
 
                 <div class="accordion accordion-group" id="our-values-accordion">
-                    <div class="card">
-                        <div class="card-header p-0 bg-transparent" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Confidentiality
-                                </button>
-                            </h2>
-                        </div>
+                    <?php
+                    $no = 1;
+                    foreach ($values as $v) {
+                    ?>
+                        <div class="card">
+                            <div class="card-header p-0 bg-transparent" id="heading<?= $no ?>">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-block text-left <?= ($no != 1) ? 'collapsed' : '' ?>" type="button" data-toggle="collapse" data-target="#collapse<?= $no ?>" aria-expanded="<?= ($no != 1) ? 'false' : 'true' ?>" aria-controls="collapse<?= $no ?>">
+                                        <?= $v->judul_setting ?>
+                                    </button>
+                                </h2>
+                            </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#our-values-accordion">
-                            <div class="card-body">
-                                Persona Quality berkomitmen menjaga rahasia klien
+                            <div id="collapse<?= $no ?>" class="collapse <?= ($no != 1) ? '' : 'show' ?>" aria-labelledby="heading<?= $no ?>" data-parent="#our-values-accordion">
+                                <div class="card-body">
+                                    <?= $v->content ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header p-0 bg-transparent" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Integrity
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#our-values-accordion">
-                            <div class="card-body">
-                                Persona Quality menjunjung tinggi nilai moral, kemanfaatan dan integritas
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header p-0 bg-transparent" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Professional
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#our-values-accordion">
-                            <div class="card-body">
-                                Persona Quality memberikan pelayanan secara profesional
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        $no++;
+                    }
+                    ?>
                 </div>
                 <!--/ Accordion end -->
 

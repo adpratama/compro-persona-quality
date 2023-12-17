@@ -28,7 +28,7 @@ class M_Setting extends CI_Model
         return $query;
     }
 
-    public function update_visimisi($data_visi, $data_misi)
+    public function update_visimisi($data_visi, $data_misi, $data_tentang)
     {
         $this->db->where('kategori', 'visi');
         $this->db->update('settings', $data_visi);
@@ -36,12 +36,15 @@ class M_Setting extends CI_Model
         $this->db->where('kategori', 'misi');
         $this->db->update('settings', $data_misi);
 
-        $this->session->set_flashdata('message_name', 'Visi misi information has been successfully updated.');
+        $this->db->where('kategori', 'tentang');
+        $this->db->update('settings', $data_tentang);
+
+        $this->session->set_flashdata('message_name', 'About us information has been successfully updated.');
         // After that you need to used redirect function instead of load view such as 
-        redirect("dash/settings");
+        redirect("dash/setting");
     }
 
-    public function update_contact($data_alamat, $data_telepon, $data_email)
+    public function update_contact($data_telepon, $data_email, $data_alamat)
     {
         $this->db->where('kategori', 'alamat');
         $this->db->update('settings', $data_alamat);
@@ -52,18 +55,14 @@ class M_Setting extends CI_Model
         $this->db->where('kategori', 'email');
         $this->db->update('settings', $data_email);
 
-        $this->session->set_flashdata('message_name', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        Contact information has been successfully updated.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>');
+        $this->session->set_flashdata('message_name', 'Contact information has been successfully updated.');
         // After that you need to used redirect function instead of load view such as 
-        redirect("dash/settings");
+        redirect("dash/setting");
     }
 
     public function category()
     {
         $query = $this->db->order_by('category_name', 'ASC')->get('article_category')->result();
-
         return $query;
     }
 
@@ -97,28 +96,24 @@ class M_Setting extends CI_Model
     public function detail_category($id)
     {
         $query = $this->db->where('Id', $id)->get('article_category')->row_array();
-
         return $query;
     }
 
     public function chat()
     {
         $query = $this->db->from('contact a')->join('social_media b', 'b.Id = a.id_sosmed_category')->get()->result();
-
         return $query;
     }
 
     public function social_media()
     {
         $query = $this->db->get('social_media')->result();
-
         return $query;
     }
 
     public function detail_social_media($id)
     {
         $query = $this->db->where('Id', $id)->get('social_media')->result();
-
         return $query;
     }
 
@@ -166,7 +161,6 @@ class M_Setting extends CI_Model
     public function detail_contact($id)
     {
         $query = $this->db->where('Id', $id)->get('contact')->row_array();
-
         return $query;
     }
 
@@ -174,5 +168,21 @@ class M_Setting extends CI_Model
     {
         $query = $this->db->select('question_' . $language . ' as question, answer_' . $language . ' as answer')->get('faq')->result();
         return $query;
+    }
+
+    public function our_values()
+    {
+        $query = $this->db->where('kategori', 'our_values')->get('settings')->result();
+        return $query;
+    }
+
+    public function add_values($data)
+    {
+        $this->db->insert('settings', $data);
+
+        $this->session->set_flashdata('message_name', 'Our values information has been successfully added.');
+
+        // After that you need to used redirect function instead of load view such as 
+        redirect("dash/setting");
     }
 }

@@ -9,16 +9,20 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->helper('date');
-		$this->load->model(array('M_Client'));
+		$this->load->model(array('M_Client', 'M_Setting'));
 	}
 	public function index()
 	{
-		$clients = $this->M_Client->list();
 		$data = [
 			"title" => "Home",
 			'pages' => 'pages/v_home',
-			'clients' => $clients,
+			'clients' => $this->M_Client->list(),
+			'tentang' => $this->M_Setting->setting('tentang'),
+			'alamat' => $this->M_Setting->setting('alamat'),
+			'telepon' => $this->M_Setting->setting('telepon'),
+			'values' => $this->M_Setting->our_values(),
 		];
+
 		$this->load->view('index', $data);
 	}
 }

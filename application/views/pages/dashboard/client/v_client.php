@@ -19,7 +19,6 @@
                             <h5 class="card-title">List of Client</h5>
                         </div>
                         <div class="col-6 text-end">
-
                             <button type="button" class="btn btn-primary btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#addNewClient">
                                 Add new
                             </button>

@@ -38,13 +38,19 @@
 <body>
 	<div class="body-inner">
 
+		<?php
+
+		$telepon = $this->M_Setting->setting('telepon');
+		$email = $this->M_Setting->setting('email');
+		$alamat = $this->M_Setting->setting('alamat');
+		?>
 		<div id="top-bar" class="top-bar">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8 col-md-8">
 						<ul class="top-info text-center text-md-left">
 							<li><i class="fas fa-map-marker-alt"></i>
-								<p class="info-text">Jl. Parit Indah, Komplek Perkantoran Grand Sudirman, Blok B-7, Pekanbaru</p>
+								<p class="info-text"><?= trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], $alamat['content']))  ?></p>
 							</li>
 						</ul>
 					</div>
@@ -94,9 +100,19 @@
 										<div class="info-box">
 											<div class="info-box-content">
 												<p class="info-box-title">Call Us</p>
-												<p class="info-box-subtitle">(+62) 761 848844</p>
-												<p class="info-box-subtitle">(+62) 761 862386</p>
-												<p class="info-box-subtitle">(+62) 851 0001 7500</p>
+												<?php
+												$telepon = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $telepon['content']));
+
+												$phoneNumberArray = explode(",", $telepon);
+
+												// Looping untuk mengakses setiap nomor telepon
+												foreach ($phoneNumberArray as $phoneNumber) {
+													// Tampilkan nomor telepon 
+												?>
+													<p class="info-box-subtitle"><?= $phoneNumber ?></p>
+												<?php
+												}
+												?>
 											</div>
 										</div>
 									</li>
@@ -104,8 +120,19 @@
 										<div class="info-box">
 											<div class="info-box-content">
 												<p class="info-box-title">Email Us</p>
-												<p class="info-box-subtitle">persona_quality@yahoo.com</p>
-												<p class="info-box-subtitle">persona_quality01@gmail.com</p>
+												<?php
+												$email = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $email['content']));
+
+												$emailArray = explode(",", $email);
+
+												// Looping untuk mengakses setiap nomor email
+												foreach ($emailArray as $email) {
+													// Tampilkan nomor email 
+												?>
+													<p class="info-box-subtitle"><?= $email ?></p>
+												<?php
+												}
+												?>
 											</div>
 										</div>
 									</li>
