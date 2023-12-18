@@ -110,9 +110,9 @@
             <li class="nav-heading">Contents</li>
 
             <li class="nav-item">
-                <a class="nav-link  <?php if ($this->uri->segment(2) != 'article') echo 'collapsed' ?>" href="<?= base_url('dash/article') ?>">
+                <a class="nav-link  <?php if ($this->uri->segment(2) != 'team') echo 'collapsed' ?>" href="<?= base_url('dash/team') ?>">
                     <i class="bi bi-person"></i>
-                    <span>Articles</span>
+                    <span>Teams</span>
                 </a>
             </li>
             <li class="nav-item">

@@ -51,7 +51,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <section class="call-to-action-box no-padding">
     <div class="container">
         <div class="action-style-box">
@@ -61,21 +61,15 @@
                         <h3 class="action-title">We understand your needs on construction</h3>
                     </div>
                 </div>
-                <!-- Col end -->
                 <div class="col-md-4 text-center text-md-right mt-3 mt-md-0">
                     <div class="call-to-action-btn">
                         <a class="btn btn-dark" href="#">Request Quote</a>
                     </div>
                 </div>
-                <!-- col end -->
             </div>
-            <!-- row end -->
         </div>
-        <!-- Action style box -->
     </div>
-    <!-- Container end -->
-</section>
-<!-- Action end -->
+</section> -->
 
 <section id="ts-features" class="ts-features">
     <div class="container">
@@ -97,7 +91,7 @@
                                 <i class="fas fa-trophy"></i>
                             </span>
                             <div class="ts-service-box-content">
-                                <h3 class="service-box-title">We've Repution for Excellence</h3>
+                                <h3 class="service-box-title">Kami memiliki Reputasi untuk Keunggulan</h3>
                             </div>
                         </div>
                         <!-- Service 1 end -->
@@ -110,7 +104,7 @@
                                 <i class="fas fa-sliders-h"></i>
                             </span>
                             <div class="ts-service-box-content">
-                                <h3 class="service-box-title">We Build Partnerships</h3>
+                                <h3 class="service-box-title">Kami Membangun Kemitraan</h3>
                             </div>
                         </div>
                         <!-- Service 2 end -->
@@ -126,7 +120,7 @@
                                 <i class="fas fa-thumbs-up"></i>
                             </span>
                             <div class="ts-service-box-content">
-                                <h3 class="service-box-title">Guided by Commitment</h3>
+                                <h3 class="service-box-title">Dipandu oleh Komitmen</h3>
                             </div>
                         </div>
                         <!-- Service 1 end -->
@@ -139,7 +133,7 @@
                                 <i class="fas fa-users"></i>
                             </span>
                             <div class="ts-service-box-content">
-                                <h3 class="service-box-title">A Team of Professionals</h3>
+                                <h3 class="service-box-title">Sebuah Tim Profesional</h3>
                             </div>
                         </div>
                         <!-- Service 2 end -->
@@ -398,104 +392,36 @@
         </div>
         <!--/ Title row end -->
 
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                <div class="ts-team-wrapper">
-                    <div class="team-img-wrapper">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team4.jpg" class="img-fluid" alt="team-img" />
-                    </div>
-                    <div class="ts-team-content-classic">
-                        <h3 class="ts-name">Dra. Rumondang J.K Napitu, M.Si., Psikolog</h3>
-                        <p class="ts-designation">Psikolog</p>
-                        <p class="ts-description">
-                            Nats Stenman began his career in construction with
-                            boots on the ground
-                        </p>
-                        <div class="team-social-icons">
-                            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+        <div class="row justify-content-center single-item">
+            <?php
+            foreach ($teams as $t) {
+            ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                    <div class="ts-team-wrapper">
+                        <div class="team-img-wrapper">
+                            <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/<?= $t->photo ?>" class="img-fluid" alt="team-img" />
                         </div>
-                        <!--/ social-icons-->
-                    </div>
-                </div>
-                <!--/ Team wrapper 3 end -->
-            </div>
-            <!-- Col end -->
-
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                <div class="ts-team-wrapper">
-                    <div class="team-img-wrapper">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team3.jpg" class="img-fluid" alt="team-img" />
-                    </div>
-                    <div class="ts-team-content-classic">
-                        <h3 class="ts-name">Drs. Agus Tiandri. S.Psi, M.Psi, Psikolog</h3>
-                        <p class="ts-designation">Psikolog</p>
-                        <p class="ts-description">
-                            Nats Stenman began his career in construction with
-                            boots on the ground
-                        </p>
-                        <div class="team-social-icons">
-                            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
+                        <div class="ts-team-content-classic">
+                            <h3 class="ts-name"><?= $t->name ?></h3>
+                            <p class="ts-designation"><?= $t->jabatan ?></p>
+                            <!-- <p class="ts-description">
+                                Nats Stenman began his career in construction with
+                                boots on the ground
+                            </p> -->
+                            <div class="team-social-icons">
+                                <a target="_blank" href="<?= ($t->sm_facebook) ? $t->sm_facebook : '#' ?>"><i class="fab fa-facebook-f"></i></a>
+                                <a target="_blank" href="<?= ($t->sm_twitter) ? $t->sm_twitter : '#' ?>"><i class="fab fa-twitter"></i></a>
+                                <a target="_blank" href="<?= ($t->sm_instagram) ? $t->sm_instagram : '#' ?>"><i class="fab fa-instagram"></i></a>
+                                <a target="_blank" href="<?= ($t->sm_linkedin) ? $t->sm_linkedin : '#' ?>"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                            <!--/ social-icons-->
                         </div>
-                        <!--/ social-icons-->
                     </div>
+                    <!--/ Team wrapper 3 end -->
                 </div>
-                <!--/ Team wrapper 4 end -->
-            </div>
-            <!-- Col end -->
-
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                <div class="ts-team-wrapper">
-                    <div class="team-img-wrapper">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team5.jpg" class="img-fluid" alt="team-img" />
-                    </div>
-                    <div class="ts-team-content-classic">
-                        <h3 class="ts-name">Hotmaida Dasalak, S.Psi., M.Si., Psikolog</h3>
-                        <p class="ts-designation">Psikolog</p>
-                        <p class="ts-description">
-                            Nats Stenman began his career in construction with
-                            boots on the ground
-                        </p>
-                        <div class="team-social-icons">
-                            <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <!--/ social-icons-->
-                    </div>
-                </div>
-                <!--/ Team wrapper 5 end -->
-            </div>
-            <!-- Col end -->
-
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                <div class="ts-team-wrapper">
-                    <div class="team-img-wrapper">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/team2.jpg" class="img-fluid" alt="team-img" />
-                    </div>
-                    <div class="ts-team-content-classic">
-                        <h3 class="ts-name">Dewi Amalia, S.Psi., M.Psi., Psikolog</h3>
-                        <p class="ts-designation">Psikolog</p>
-                        <p class="ts-description">
-                            Nats Stenman began his career in construction with
-                            boots on the ground
-                        </p>
-                        <div class="team-social-icons">
-                            <a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-google-plus"></i></a>
-                            <a target="_blank" href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                        <!--/ social-icons-->
-                    </div>
-                </div>
-                <!--/ Team wrapper 6 end -->
-            </div>
-            <!-- Col end -->
+            <?php
+            }
+            ?>
         </div>
         <!-- Content row end -->
     </div>

@@ -370,6 +370,22 @@
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 	</script>
+	<script>
+		// $('.single-item').slick();
+
+		$('.single-item').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+		});
+		$('.item-carousel').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+		});
+	</script>
 
 </body>
 
