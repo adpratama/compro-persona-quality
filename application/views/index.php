@@ -190,15 +190,6 @@
 												<li><a href="faq.html">Faq</a></li> -->
 											</ul>
 										</li>
-
-										<!-- <li class="nav-item dropdown">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Projects <i class="fa fa-angle-down"></i></a>
-											<ul class="dropdown-menu" role="menu">
-												<li><a href="projects.html">Projects All</a></li>
-												<li><a href="projects-single.html">Projects Single</a></li>
-											</ul>
-										</li> -->
-
 										<li class="nav-item dropdown">
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
@@ -211,7 +202,7 @@
 											<a href="#" class="nav-link">Articles</a>
 										</li>
 
-										<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+										<li class="nav-item <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('home/contact') ?>">Contact</a></li>
 									</ul>
 								</div>
 							</nav>

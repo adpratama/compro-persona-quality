@@ -25,4 +25,17 @@ class Home extends CI_Controller
 
 		$this->load->view('index', $data);
 	}
+
+	public function contact()
+	{
+		$data = [
+			"title" => "Contact",
+			'pages' => 'pages/v_contact',
+			'telepon' => $this->M_Setting->setting('telepon'),
+			'email' => $this->M_Setting->setting('email'),
+			'alamat' => $this->M_Setting->setting('alamat'),
+		];
+
+		$this->load->view('index', $data);
+	}
 }
