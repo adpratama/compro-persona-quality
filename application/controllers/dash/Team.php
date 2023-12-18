@@ -6,18 +6,15 @@ class Team extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('string');
-        $this->load->model(array('M_Auth', 'M_Team'));
-        $this->load->helper('date');
-        $this->load->library('form_validation');
+        $this->load->library(['session', 'form_validation']);
+        $this->load->helper(['string', 'date']);
+        $this->load->model(['M_Auth', 'M_Team']);
 
         if (!$this->session->userdata('is_logged_in')) {
-
             $this->session->set_flashdata('message_name', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			You have to login first.
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>');
+            You have to login first.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>');
             redirect('auth');
         }
     }
@@ -48,167 +45,125 @@ class Team extends CI_Controller
         $now = date('Y-m-d H:i:s');
 
         if ($old_slug) {
-            // untuk edit data client
-            if ($_POST['submit'] == "update_nama") {
-                // untuk edit nama saja
-                $data = [
-                    "name" => $this->input->post('client_name')
-                ];
-
-                $this->M_Team->update_data($data, $old_slug);
-            } else if ($_POST['submit'] == "update_logo") {
-                // untuk edit logo saja
-                $photo = $_FILES['client_logo']['name'];
-
-                $cek = $this->M_Team->detail($old_slug);
-
-                $foto = $cek["logo"];
-                $path = "assets/front/images/clients/" . $foto;
-
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-
-                $pathInfo = pathinfo($photo);
-                $extension = $pathInfo['extension']; // Extension file
-                $newPhotoFileName = $old_slug . '.' . $extension;
-
-                $config = array(
-                    'upload_path' => 'assets/front/images/clients/',
-                    'allowed_types' => "png|PNG",
-                    'overwrite' => TRUE,
-                    'max_size' => "99999999999",
-                    'max_height' => "800",
-                    'max_width' => "1500",
-                    'file_name' => $newPhotoFileName
-                );
-
-                // var_dump($config);exit;
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('client_logo')) {
-                    $error = array('error' => $this->upload->display_errors());
-
-                    $this->session->set_flashdata('message_error', 'Error message: ' . $this->upload->display_errors() . '.');
-
-
-                    // After that you need to used redirect function instead of load view such as 
-                    redirect($_SERVER['HTTP_REFERER'], $error);
-                } else {
-
-                    $data = array(
-                        'logo' => $newPhotoFileName,
-                        'updated_at' => $now,
-                        'updated_by' => $user_id
-                    );
-
-                    $this->M_Team->update_photo($data, $old_slug);
-                }
-            }
+            $this->handleTeamUpdate($old_slug, $user_id, $now);
         } else {
-            $this->form_validation->set_rules('team_name', 'Team name ', 'required');
-            $this->form_validation->set_rules('team_title', 'Team title ', 'required');
+            $this->form_validation->set_rules('team_name', 'Team name', 'required');
+            $this->form_validation->set_rules('team_title', 'Team title', 'required');
 
-            if ($this->form_validation->run() ===  FALSE) {
-
-                $this->session->set_flashdata('message_error', trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], validation_errors())));
-
-                $this->session->set_flashdata('team_name', set_value('team_name'));
-                $this->session->set_flashdata('team_title', set_value('team_title'));
-                $this->session->set_flashdata('team_fb', set_value('team_fb'));
-                $this->session->set_flashdata('team_tw', set_value('team_tw'));
-                $this->session->set_flashdata('team_ig', set_value('team_ig'));
-                $this->session->set_flashdata('team_lg', set_value('team_lg'));
-
-
-                redirect($_SERVER['HTTP_REFERER']);
+            if ($this->form_validation->run() === FALSE) {
+                $this->handleValidationErrors();
             } else {
-
-                $team_name = trim($this->input->post('team_name'));
-
-                // pembuatan slug dari nama produk
-                $out = explode(" ", $team_name);
-                $slug = preg_replace("/[^A-Za-z0-9\-]/", "", strtolower(implode("-", $out)));
-
-                $query_check = $this->M_Team->is_available($slug);
-
-                $hasil = $query_check["id"];
-
-                if ($hasil > 0) {
-                    $this->session->set_flashdata('message_error', 'The team is already available.');
-                    redirect('dash/team');
-                } else {
-
-                    $photo = $_FILES['team_photo']['name']; // Nama file 
-
-                    // Mendapatkan extension
-                    $pathInfo = pathinfo($photo);
-                    $extension = $pathInfo['extension']; // Extension file
-                    $newPhotoFileName = $slug . '.' . $extension;
-
-                    $config = array(
-                        'upload_path' => 'assets/front/images/team/',
-                        'allowed_types' => "jpeg|jpg|JPEG|JPG",
-                        'overwrite' => TRUE,
-                        'max_size' => "99999999999",
-                        'max_height' => "2000",
-                        'max_width' => "2500",
-                        'file_name' => $newPhotoFileName
-                    );
-
-                    $this->load->library('upload', $config);
-
-                    if (!$this->upload->do_upload('team_photo')) {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        $this->session->set_flashdata('message_error', 'Error message: ' . $this->upload->display_errors());
-
-                        $this->session->set_flashdata('team_name', set_value('team_name'));
-                        $this->session->set_flashdata('team_title', set_value('team_title'));
-                        $this->session->set_flashdata('team_fb', set_value('team_fb'));
-                        $this->session->set_flashdata('team_tw', set_value('team_tw'));
-                        $this->session->set_flashdata('team_ig', set_value('team_ig'));
-                        $this->session->set_flashdata('team_lg', set_value('team_lg'));
-
-                        // After that you need to used redirect function instead of load view such as 
-                        redirect($_SERVER['HTTP_REFERER'], $error);
-                    } else {
-
-                        $data = [
-                            'name' => $team_name,
-                            'jabatan' => $this->input->post('team_title'),
-                            'sm_facebook' => $this->input->post('team_fb'),
-                            'sm_twitter' => $this->input->post('team_tw'),
-                            'sm_instagram' => $this->input->post('team_ig'),
-                            'sm_linkedin' => $this->input->post('team_lk'),
-                            'no_urut_jabatan' => '2',
-                            'photo' => $newPhotoFileName,
-                            'slug' => trim($slug),
-                            'created_at' => $now,
-                            'created_by' => $user_id,
-                        ];
-
-                        $this->M_Team->add_team($data);
-                    }
-                }
+                $this->handleTeamCreation($user_id, $now);
             }
         }
+    }
+
+    private function handleTeamUpdate($old_slug, $user_id, $now)
+    {
+        $data = $this->prepareTeamData($user_id, $now);
+
+        if ($_POST['submit'] == 'update_nama') {
+            $data['name'] = $this->input->post('team_name');
+        } elseif ($_POST['submit'] == 'update_logo') {
+            $this->handleLogoUpdate($old_slug, $data);
+        }
+
+        $this->M_Team->update_data($data, $old_slug);
+    }
+
+    private function handleValidationErrors()
+    {
+        $this->session->set_flashdata('message_error', trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], validation_errors())));
+        $this->session->set_flashdata('team_name', set_value('team_name'));
+        $this->session->set_flashdata('team_title', set_value('team_title'));
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    private function handleTeamCreation($user_id, $now)
+    {
+        $data = $this->prepareTeamData($user_id, $now);
+        $slug = url_title($this->input->post('team_name'), 'dash', TRUE);
+        $this->handleLogoUpload($slug, $data);
+    }
+
+    private function prepareTeamData($user_id, $now)
+    {
+        return [
+            'name' => $this->input->post('team_name'),
+            'jabatan' => $this->input->post('team_title'),
+            'sm_facebook' => $this->input->post('team_fb'),
+            'sm_twitter' => $this->input->post('team_tw'),
+            'sm_instagram' => $this->input->post('team_ig'),
+            'sm_linkedin' => $this->input->post('team_lk'),
+            'no_urut_jabatan' => '2',
+            'created_at' => $now,
+            'created_by' => $user_id,
+        ];
+    }
+
+    private function handleLogoUpdate($old_slug, &$data)
+    {
+        $photo = $_FILES['team_photo']['name'];
+        $old_data = $this->M_Team->detail($old_slug);
+        $old_photo = $old_data['logo'];
+
+        $this->deleteOldPhoto($old_photo);
+
+        $data['logo'] = $this->uploadPhoto($old_slug);
+    }
+
+    private function deleteOldPhoto($photo)
+    {
+        $path = 'assets/front/images/team/' . $photo;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
+
+    private function handleLogoUpload($slug, &$data)
+    {
+        $data['logo'] = $this->uploadPhoto($slug);
+        $this->M_Team->add_team($data);
+    }
+
+    private function uploadPhoto($slug)
+    {
+        $photo = $_FILES['team_photo']['name'];
+        $path_info = pathinfo($photo);
+        $extension = $path_info['extension'];
+        $new_photo_file_name = $slug . '.' . $extension;
+
+        $config = [
+            'upload_path' => 'assets/front/images/team/',
+            'allowed_types' => 'jpeg|jpg|JPEG|JPG',
+            'overwrite' => TRUE,
+            'max_size' => '99999999999',
+            'max_height' => '2000',
+            'max_width' => '2500',
+            'file_name' => $new_photo_file_name,
+        ];
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('team_photo')) {
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('message_error', 'Error message: ' . $error);
+            redirect($_SERVER['HTTP_REFERER'], $error);
+        }
+
+        return $new_photo_file_name;
     }
 
     public function delete()
     {
         $slug = $this->uri->segment(4);
+        $this->deleteTeam($slug);
+    }
 
-        $cek = $this->M_Team->detail($slug);
-
-        $foto = $cek["photo"];
-
-        $path = "assets/front/images/clients/" . $foto;
-
-        if (file_exists($path)) {
-            unlink($path);
-        }
-
+    private function deleteTeam($slug)
+    {
+        $old_data = $this->M_Team->detail($slug);
+        $this->deleteOldPhoto($old_data['logo']);
         $this->M_Team->delete($slug);
     }
 }

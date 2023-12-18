@@ -3,17 +3,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Client extends CI_Controller
 {
+    const UPDATE_NAMA = "update_nama";
+    const UPDATE_LOGO = "update_logo";
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('string');
-        $this->load->model(array('M_Auth', 'M_Client'));
-        $this->load->helper('date');
-        $this->load->library('form_validation');
+        $this->load->library(['session', 'form_validation', 'upload']);
+        $this->load->helper(['string', 'date']);
+        $this->load->model(['M_Auth', 'M_Client']);
 
         if (!$this->session->userdata('is_logged_in')) {
-
             $this->session->set_flashdata('message_name', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 			You have to login first.
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -35,148 +35,89 @@ class Client extends CI_Controller
     public function store()
     {
         $old_slug = $this->uri->segment(4);
+        $client_name = $this->input->post('client_name');
+
+        switch ($_POST['submit']) {
+            case self::UPDATE_NAMA:
+                $data = ['name' => $client_name];
+                $this->M_Client->update_data($data, $old_slug);
+                break;
+
+            case self::UPDATE_LOGO:
+                $this->handleLogoUpdate($old_slug);
+                break;
+
+            default:
+                // Default case
+                break;
+        }
+    }
+
+    private function handleLogoUpdate($old_slug)
+    {
         $user_id = $this->session->userdata('user_id');
         $now = date('Y-m-d H:i:s');
+        $upload_path = 'assets/front/images/clients/';
 
-        if ($old_slug) {
-            // untuk edit data client
-            if ($_POST['submit'] == "update_nama") {
-                // untuk edit nama saja
-                $data = [
-                    "name" => $this->input->post('client_name')
-                ];
+        $photo = $_FILES['client_logo']['name'];
+        $old_data = $this->M_Client->detail($old_slug);
+        $old_photo = $old_data['logo'];
 
-                $this->M_Client->update_data($data, $old_slug);
-            } else if ($_POST['submit'] == "update_logo") {
-                // untuk edit logo saja
-                $photo = $_FILES['client_logo']['name'];
+        $this->deleteOldPhoto($old_photo, $upload_path);
 
-                $cek = $this->M_Client->detail($old_slug);
+        $data['logo'] = $this->uploadPhoto($old_slug, $upload_path);
+        $data['updated_at'] = $now;
+        $data['updated_by'] = $user_id;
 
-                $foto = $cek["logo"];
-                $path = "assets/front/images/clients/" . $foto;
+        $this->M_Client->update_photo($data, $old_slug);
+    }
 
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-
-                $pathInfo = pathinfo($photo);
-                $extension = $pathInfo['extension']; // Extension file
-                $newPhotoFileName = $old_slug . '.' . $extension;
-
-                $config = array(
-                    'upload_path' => 'assets/front/images/clients/',
-                    'allowed_types' => "png|PNG",
-                    'overwrite' => TRUE,
-                    'max_size' => "99999999999",
-                    'max_height' => "800",
-                    'max_width' => "1500",
-                    'file_name' => $newPhotoFileName
-                );
-
-                // var_dump($config);exit;
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('client_logo')) {
-                    $error = array('error' => $this->upload->display_errors());
-
-                    $this->session->set_flashdata('message_error', 'Error message: ' . $this->upload->display_errors() . '.');
-
-                    // After that you need to used redirect function instead of load view such as 
-                    redirect($_SERVER['HTTP_REFERER'], $error);
-                } else {
-
-                    $data = array(
-                        'logo' => $newPhotoFileName,
-                        'updated_at' => $now,
-                        'updated_by' => $user_id
-                    );
-
-                    $this->M_Client->update_photo($data, $old_slug);
-                }
-            }
-        } else {
-            $this->form_validation->set_rules('client_name', 'Client Name ', 'required');
-
-            if ($this->form_validation->run() ===  FALSE) {
-
-                $this->session->set_flashdata('message_error', trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], validation_errors())));
-
-                redirect($_SERVER['HTTP_REFERER']);
-            } else {
-
-                $client_name = trim($this->input->post('client_name'));
-
-                // pembuatan slug dari nama produk
-                $out = explode(" ", $client_name);
-                $slug = preg_replace("/[^A-Za-z0-9\-]/", "", strtolower(implode("-", $out)));
-
-                $query_check = $this->M_Client->is_available($slug);
-
-                $hasil = $query_check["id"];
-
-                if ($hasil > 0) {
-                    $this->session->set_flashdata('message_error', 'The client is already available.');
-                    redirect('dash/client');
-                } else {
-
-                    $photo = $_FILES['client_logo']['name']; // Nama file 
-
-                    // Mendapatkan extension
-                    $pathInfo = pathinfo($photo);
-                    $extension = $pathInfo['extension']; // Extension file
-                    $newPhotoFileName = $slug . '.' . $extension;
-
-                    $config = array(
-                        'upload_path' => 'assets/front/images/clients/',
-                        'allowed_types' => "png|PNG",
-                        'overwrite' => TRUE,
-                        'max_size' => "99999999999",
-                        'max_height' => "2000",
-                        'max_width' => "2500",
-                        'file_name' => $newPhotoFileName
-                    );
-
-                    $this->load->library('upload', $config);
-
-                    if (!$this->upload->do_upload('client_logo')) {
-                        $error = array('error' => $this->upload->display_errors());
-
-                        $this->session->set_flashdata('message_error', 'Error message: ' . $this->upload->display_errors());
-
-                        // After that you need to used redirect function instead of load view such as 
-                        redirect($_SERVER['HTTP_REFERER'], $error);
-                    } else {
-
-                        $data = [
-                            'name' => $client_name,
-                            'logo' => $newPhotoFileName,
-                            'slug' => trim($slug),
-                            'created_at' => $now,
-                            'created_by' => $user_id,
-                        ];
-
-                        $this->M_Client->add_client($data);
-                    }
-                }
-            }
+    private function deleteOldPhoto($photo, $upload_path)
+    {
+        $path = $upload_path . $photo;
+        if (file_exists($path)) {
+            unlink($path);
         }
+    }
+
+    private function uploadPhoto($slug, $upload_path)
+    {
+        $photo = $_FILES['client_logo']['name'];
+        $path_info = pathinfo($photo);
+        $extension = $path_info['extension'];
+        $new_photo_file_name = $slug . '.' . $extension;
+
+        $config = [
+            'upload_path' => $upload_path,
+            'allowed_types' => 'png|PNG',
+            'overwrite' => TRUE,
+            'max_size' => '99999999999',
+            'max_height' => '800',
+            'max_width' => '1500',
+            'file_name' => $new_photo_file_name,
+        ];
+
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('client_logo')) {
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('message_error', 'Error message: ' . $error);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+
+        return $new_photo_file_name;
     }
 
     public function delete()
     {
         $slug = $this->uri->segment(4);
+        $this->deleteClient($slug);
+    }
 
-        $cek = $this->M_Client->detail($slug);
-
-        $foto = $cek["photo"];
-
-        $path = "assets/front/images/clients/" . $foto;
-
-        if (file_exists($path)) {
-            unlink($path);
-        }
-
+    private function deleteClient($slug)
+    {
+        $old_data = $this->M_Client->detail($slug);
+        $this->deleteOldPhoto($old_data['logo'], 'assets/front/images/clients/');
         $this->M_Client->delete($slug);
     }
 }

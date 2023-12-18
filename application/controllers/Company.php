@@ -3,38 +3,37 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Company extends CI_Controller
 {
+    private $data = [];
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper(array('form', 'url'));
-        $this->load->helper('date');
-        $this->load->model(array('M_Client', 'M_Setting', 'M_Team'));
+        $this->load->helper(['form', 'url', 'date']);
+        $this->load->model(['M_Client', 'M_Setting', 'M_Team']);
+        $this->data['values'] = $this->M_Setting->our_values();
     }
 
     public function about()
     {
-        $data = [
+        $this->data += [
             "title" => "About us",
             'pages' => 'pages/v_about',
             'visi' => $this->M_Setting->setting('visi'),
             'misi' => $this->M_Setting->setting('misi'),
             'tentang' => $this->M_Setting->setting('tentang'),
-            'values' => $this->M_Setting->our_values(),
         ];
 
-        $this->load->view('index', $data);
+        $this->load->view('index', $this->data);
     }
 
     public function team()
     {
-        $data = [
+        $this->data += [
             "title" => "Our team",
             'pages' => 'pages/v_team',
             'teams' => $this->M_Team->list(),
-            'values' => $this->M_Setting->our_values(),
         ];
 
-        $this->load->view('index', $data);
+        $this->load->view('index', $this->data);
     }
 }

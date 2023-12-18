@@ -30,7 +30,7 @@
                     </ul>
                     <div class="tab-content pt-2" id="borderedTabContent">
                         <div class="tab-pane fade show active" id="about-us" role="tabpanel" aria-labelledby="">
-                            <form action="<?= base_url('dash/setting/update_visimisi') ?>" method="post">
+                            <form action="<?= base_url('dash/setting/update_visimisi') ?>" method="post" class=" mt-2">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <label for="tentang" class="form-label">Tentang</label>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="tab-pane fade" id="our-values" role="tabpanel" aria-labelledby="">
 
-                            <div class="row mb-3">
+                            <div class="row mb-3 mt-2">
                                 <div class="col-12">
                                     <button type="button" class="btn btn-primary btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#addNewValues">
                                         Add new
@@ -105,7 +105,29 @@
                         </div>
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="">
                             <form action="<?= base_url('dash/setting/update_contact') ?>" method="post">
-                                <div class="row">
+                                <div class="row g-3 mt-2">
+                                    <div class="col-lg-4">
+                                        <!-- <label for="facebook" class="form-label">Facebook</label> -->
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-facebook"></i></span>
+                                            <textarea name="facebook" id="facebook" cols="30" rows="3" class="form-control" placeholder="URL Facebook"><?= $facebook['content'] ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-twitter"></i></span>
+                                            <textarea name="twitter" id="twitter" cols="30" rows="3" class="form-control" placeholder="URL Twitter"><?= $twitter['content'] ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-instagram"></i></span>
+                                            <textarea name="instagram" id="instagram" cols="30" rows="3" class="form-control" placeholder="URL Instagram"><?= $instagram['content'] ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-3">
                                     <div class="col-lg-6">
                                         <label for="alamat" class="form-label">Alamat</label>
                                         <input type="hidden" name="alamat" value='<?= $alamat['content'] ?>' class="form-control">
@@ -164,43 +186,6 @@
         </div>
     </div>
 </div>
-
-<!-- <?php
-        foreach ($settings as $s) {
-        ?>
-    <div class="modal fade" id="editSetting<?= $s->kategori ?>" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit <?= $s->judul_setting ?></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form method="POST" action="<?= base_url('dash/setting/store/' . $s->kategori) ?>" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <label for="judul_setting" class="form-label">Title</label>
-                                <input type="text" class="form-control" id="judul_setting" name="judul_setting" value="<?= $s->judul_setting ?>" disabled>
-                            </div>
-                        </div>
-                        <div class="row g-3 mt-1">
-                            <div class="col-12">
-                                <label for="content" class="form-label">Content</label>
-                                <textarea name="content" id="content" cols="30" rows="5" class="form-control"><?= $s->content ?></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="tooltip" title="Tutup modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit" data-bs-toggle="tooltip" title="Update <?= $s->judul_setting ?>">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-<?php
-        }
-?> -->
 
 <script src="<?= base_url() ?>assets/dashboard/vendor/quill/quill.min.js"></script>
 <script>
