@@ -11,6 +11,7 @@ class Home extends CI_Controller
 		$this->load->helper('date');
 		$this->load->model(array('M_Client', 'M_Setting', 'M_Team'));
 	}
+
 	public function index()
 	{
 		$data = [
@@ -18,8 +19,6 @@ class Home extends CI_Controller
 			'pages' => 'pages/v_home',
 			'clients' => $this->M_Client->list(),
 			'tentang' => $this->M_Setting->setting('tentang'),
-			'alamat' => $this->M_Setting->setting('alamat'),
-			'telepon' => $this->M_Setting->setting('telepon'),
 			'values' => $this->M_Setting->our_values(),
 			'teams' => $this->M_Team->list(),
 		];

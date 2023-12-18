@@ -33,6 +33,11 @@
 	<!-- Template styles-->
 	<link rel="stylesheet" href="<?= base_url('assets/front/') ?>css/style.css">
 
+	<style>
+		.title-about {
+			margin-left: -15px;
+		}
+	</style>
 </head>
 
 <body>
@@ -173,21 +178,16 @@
 
 								<div id="navbar-collapse" class="collapse navbar-collapse">
 									<ul class="nav navbar-nav mr-auto">
-										<li class="nav-item dropdown active">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Home <i class="fa fa-angle-down"></i></a>
-											<ul class="dropdown-menu" role="menu">
-												<li class="active"><a href="index.html">Home One</a></li>
-												<li><a href="index-2.html">Home Two</a></li>
-											</ul>
+										<li class="nav-item  <?= ($this->uri->segment(1) == "home" or $this->uri->segment(1) == "") ? 'active' : '' ?>">
+											<a href="<?= base_url('home') ?>" class="nav-link">Home</a>
 										</li>
-
-										<li class="nav-item dropdown">
+										<li class="nav-item dropdown  <?= ($this->uri->segment(1) == "company") ? 'active' : '' ?>">
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li><a href="about.html">About Us</a></li>
-												<li><a href="team.html">Our Team</a></li>
-												<li><a href="testimonials.html">Testimonials</a></li>
-												<li><a href="faq.html">Faq</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">About Us</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Our Team</a></li>
+												<!-- <li><a href="testimonials.html">Testimonials</a></li>
+												<li><a href="faq.html">Faq</a></li> -->
 											</ul>
 										</li>
 
