@@ -87,33 +87,6 @@
                 <?= $misi['content'] ?>
             </div>
         </div>
-        <div class="row">
-
-
-            <div class="col-lg-6 mt-5 mt-lg-0">
-
-                <div id="page-slider" class="page-slider small-bg">
-
-                    <?php
-                    foreach ($values as $v) {
-                    ?>
-                        <div class="item" style="background-image:url(<?= base_url() ?>assets/front/images/slider-pages/slide-page2.jpg)">
-                            <div class="container">
-                                <div class="box-slider-content">
-                                    <div class="box-slider-text">
-                                        <h2 class="box-slide-title"><?= $v->judul_setting ?></h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
-                </div><!-- Page slider end-->
-
-
-            </div>
-        </div>
         <!-- Content row end -->
     </div>
     <!-- Container end -->
