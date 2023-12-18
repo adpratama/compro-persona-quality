@@ -48,6 +48,7 @@
 		$telepon = $this->M_Setting->setting('telepon');
 		$email = $this->M_Setting->setting('email');
 		$alamat = $this->M_Setting->setting('alamat');
+		$tentang = $this->M_Setting->setting('tentang');
 		?>
 		<div id="top-bar" class="top-bar">
 			<div class="container">
@@ -202,7 +203,7 @@
 											<a href="#" class="nav-link">Articles</a>
 										</li>
 
-										<li class="nav-item <?= ($this->uri->segment(2) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('home/contact') ?>">Contact</a></li>
+										<li class="nav-item <?= ($this->uri->segment(1) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('contact') ?>">Contact</a></li>
 									</ul>
 								</div>
 							</nav>
@@ -239,8 +240,7 @@
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
 							<h3 class="widget-title">About Us</h3>
 							<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci done idunt ut
-								labore et dolore magna aliqua.</p>
+							<?= $tentang['content'] ?>
 							<div class="footer-social">
 								<ul>
 									<li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
