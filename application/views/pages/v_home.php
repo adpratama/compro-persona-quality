@@ -164,61 +164,6 @@
     <!-- Container end -->
 </section>
 <!-- Feature are end -->
-
-<section id="facts" class="facts-area dark-bg">
-    <div class="container">
-        <div class="facts-wrapper">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 ts-facts">
-                    <div class="ts-facts-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact1.png" alt="facts-img">
-                    </div>
-                    <div class="ts-facts-content">
-                        <h2 class="ts-facts-num"><span class="counterUp" data-count="1789">0</span></h2>
-                        <h3 class="ts-facts-title">Total Projects</h3>
-                    </div>
-                </div>
-                <!-- Col end -->
-
-                <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-sm-0">
-                    <div class="ts-facts-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="facts-img">
-                    </div>
-                    <div class="ts-facts-content">
-                        <h2 class="ts-facts-num"><span class="counterUp" data-count="<?= count($clients) ?>">0</span></h2>
-                        <h3 class="ts-facts-title">Clients</h3>
-                    </div>
-                </div>
-                <!-- Col end -->
-
-                <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
-                    <div class="ts-facts-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact3.png" alt="facts-img">
-                    </div>
-                    <div class="ts-facts-content">
-                        <h2 class="ts-facts-num"><span class="counterUp" data-count="4000">0</span></h2>
-                        <h3 class="ts-facts-title">Hours of Work</h3>
-                    </div>
-                </div>
-                <!-- Col end -->
-
-                <div class="col-md-3 col-sm-6 ts-facts mt-5 mt-md-0">
-                    <div class="ts-facts-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact4.png" alt="facts-img">
-                    </div>
-                    <div class="ts-facts-content">
-                        <h2 class="ts-facts-num"><span class="counterUp" data-count="44">0</span></h2>
-                        <h3 class="ts-facts-title">Countries Experience</h3>
-                    </div>
-                </div>
-                <!-- Col end -->
-
-            </div> <!-- Facts end -->
-        </div>
-        <!--/ Content row end -->
-    </div>
-    <!--/ Container end -->
-</section>
 <!-- Facts end -->
 
 <section id="ts-service-area" class="ts-service-area pb-0">
@@ -234,9 +179,9 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon4.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Sistem Pengelolaan SDM</a></h3>
                         <p>Membantu perusahaan untuk merancang dan membuat peraturan perusahaan, analisa dan uraian jabatan, sistem penggajian, performance appraisal, perencanaan karir dan penelitian</p>
@@ -246,9 +191,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon5.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Rekrutmen</a></h3>
                         <p>Psikotes dan wawancara STAR. Psikotes untuk pengukuran IQ, EQ, bakat dan kemampuan khusus dikaitkan dengan deskripsi kerja, gaya/sikap kerja, kemampuan adaptasi/interaksi, aspek-aspek kepribadian dikaitkan dengan deskripsi kerja</p>
@@ -258,9 +203,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Evaluasi</a></h3>
                         <p>Kegiatan penilaian, kinerja dimaksudkan untuk mengukur kinerja masing-masing tenaga kerja dalam mengembangkan dan meningkatkan kualitas kerja, 1. Assesment Competency; 2. Assessment Center</p>
@@ -269,9 +214,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Coaching</a></h3>
                         <p>Coaching adalah media bagi manager untuk memberikan arahan, pemahaman dan dorongan kepada karyawannya untuk memperbaiki kinerja melalui interaksi intensif</p>
@@ -280,9 +225,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Konseling</a></h3>
                         <p>Konseling adalah layanan konsultasi baik dalam bentuk konseling maupun terapi psikologi jika dibutuhkan</p>
@@ -291,9 +236,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Training</a></h3>
                         <p>Training yang dilakukan untuk meningkatkan kompetensi karyawan dalam mengatasi tugas diposisi yang dituju</p>
@@ -302,9 +247,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Seminar</a></h3>
                         <p>Memberikan ceramah dan seminar sesuai kebutuhan dan permintaan klien</p>
@@ -313,9 +258,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <div class="ts-service-box-img">
+                    <!-- <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1.png" alt="service-icon">
-                    </div>
+                    </div> -->
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Persiapan Pensiun</a></h3>
                         <p>Pelatihan untuk mempersiapkan karyawan agar dapat menyesuaikan diri dengan masa pensiun</p>
