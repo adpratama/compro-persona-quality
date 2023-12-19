@@ -675,8 +675,7 @@ ul.top-info li p.info-text {
 
 .header-one,
 .header-one .site-navigation {
-  /* background: #000; */
-  background: #611f1f;
+  background: #fff;
 }
 
 .header-one .navbar-collapse {
@@ -738,8 +737,8 @@ ul.navbar-nav>li>a {
 
 ul.navbar-nav>li:hover>a,
 ul.navbar-nav>li.active>a {
-  color: #fff !important;
-  border-bottom: 4px #fff solid;
+  color: #611f1f !important;
+  border-bottom: 4px #611f1f solid;
 }
 
 /*-- Logo --*/
@@ -972,7 +971,7 @@ ul.navbar-nav>li>a:after {
 
 ul.navbar-nav>li>a {
   font-family: "Montserrat", sans-serif;
-  color: #fff !important;
+  color: #611f1f !important;
   text-rendering: optimizeLegibility;
   font-weight: 700 !important;
   text-transform: uppercase;

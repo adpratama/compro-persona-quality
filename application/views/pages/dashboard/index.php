@@ -110,15 +110,22 @@
             <li class="nav-heading">Contents</li>
 
             <li class="nav-item">
-                <a class="nav-link  <?php if ($this->uri->segment(2) != 'team') echo 'collapsed' ?>" href="<?= base_url('dash/team') ?>">
+                <a class="nav-link  <?php if ($this->uri->segment(2) != 'article') echo 'collapsed' ?>" href="<?= base_url('dash/article') ?>">
                     <i class="bi bi-person"></i>
-                    <span>Teams</span>
+                    <span>Articles</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link  <?php if ($this->uri->segment(2) != 'client') echo 'collapsed' ?>" href="<?= base_url('dash/client') ?>">
                     <i class="bi bi-person"></i>
                     <span>Clients</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link  <?php if ($this->uri->segment(2) != 'team') echo 'collapsed' ?>" href="<?= base_url('dash/team') ?>">
+                    <i class="bi bi-person"></i>
+                    <span>Teams</span>
                 </a>
             </li>
             <!-- End Dashboard Nav -->
