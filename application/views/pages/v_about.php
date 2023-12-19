@@ -1,5 +1,5 @@
 <!-- Banner area -->
-<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url() ?>assets/front/images/banner/banner1.jpg)">
+<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url() ?>assets/front/images/banner/banner3.jpg)">
     <div class="banner-text">
         <div class="container">
             <div class="row">

@@ -46,21 +46,6 @@ class M_Auth extends CI_Model
         return $this->db->get_where('user_role', ['Id' => $id])->row_array();
     }
 
-    public function dashboard()
-    {
-        return $this->db->get('user')->num_rows();
-    }
-
-    public function count_admin()
-    {
-        return $this->db->get_where('user', ['role_id' => '1'])->num_rows();
-    }
-
-    public function count_member()
-    {
-        return $this->db->get_where('user', ['role_id' => '2'])->num_rows();
-    }
-
     public function users_list()
     {
         return $this->db->get('user')->result();
@@ -71,23 +56,5 @@ class M_Auth extends CI_Model
         $this->db->insert('user', $data);
         $this->session->set_flashdata('message_name', 'Member successfully added');
         redirect('dashboard/user');
-    }
-
-    public function add_member_v2($data)
-    {
-        $this->db->insert('user', $data);
-        return $this->db->affected_rows();
-    }
-
-    public function member_list()
-    {
-        $array = array('role_id' => '2', 'is_active' => '1');
-        return $this->db->select('id_karyawan, name, username, nama_perusahaan')->where($array)->get('v_karyawan')->result();
-    }
-
-    public function member_list_id($id)
-    {
-        $array = array('id_karyawan' => $id);
-        return $this->db->select('id_karyawan, name, username, nama_perusahaan')->where($array)->get('v_karyawan')->row_array();
     }
 }

@@ -233,7 +233,7 @@
 		<!--/ Header end -->
 		<?php if (isset($pages)) $this->load->view($pages) ?>
 
-		<footer id="footer" class="footer bg-overlay">
+		<footer id="footer" class="footer">
 			<div class="footer-main">
 				<div class="container">
 					<div class="row justify-content-between">
