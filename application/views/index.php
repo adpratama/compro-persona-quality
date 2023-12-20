@@ -44,11 +44,12 @@
 	<div class="body-inner">
 
 		<?php
+		$setting_names = ['telepon', 'email', 'alamat', 'tentang', 'facebook', 'twitter', 'instagram'];
+		$settings = [];
 
-		$telepon = $this->M_Setting->setting('telepon');
-		$email = $this->M_Setting->setting('email');
-		$alamat = $this->M_Setting->setting('alamat');
-		$tentang = $this->M_Setting->setting('tentang');
+		foreach ($setting_names as $name) {
+			$settings[$name] = $this->M_Setting->setting($name);
+		}
 		?>
 		<div id="top-bar" class="top-bar">
 			<div class="container">
@@ -56,7 +57,7 @@
 					<div class="col-lg-8 col-md-8">
 						<ul class="top-info text-center text-md-left">
 							<li><i class="fas fa-map-marker-alt"></i>
-								<p class="info-text"><?= trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], $alamat['content']))  ?></p>
+								<p class="info-text"><?= trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ""], $settings['alamat']['content']))  ?></p>
 							</li>
 						</ul>
 					</div>
@@ -65,18 +66,15 @@
 					<div class="col-lg-4 col-md-4 top-social text-center text-md-right">
 						<ul class="list-unstyled">
 							<li>
-								<a title="Facebook" href="https://facebbok.com/themefisher.com">
+								<a title="Facebook" href="<?= $settings['facebook']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-facebook-f"></i></span>
 								</a>
-								<a title="Twitter" href="https://twitter.com/themefisher.com">
+								<a title="Twitter" href="<?= $settings['twitter']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-twitter"></i></span>
 								</a>
-								<a title="Instagram" href="https://instagram.com/themefisher.com">
+								<a title="Instagram" href="<?= $settings['instagram']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-instagram"></i></span>
 								</a>
-								<!-- <a title="Linkdin" href="https://github.com/themefisher.com">
-									<span class="social-icon"><i class="fab fa-github"></i></span>
-								</a> -->
 							</li>
 						</ul>
 					</div>
@@ -107,7 +105,7 @@
 											<div class="info-box-content">
 												<p class="info-box-title">Call Us</p>
 												<?php
-												$telepon = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $telepon['content']));
+												$telepon = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $settings['telepon']['content']));
 
 												$phoneNumberArray = explode(",", $telepon);
 
@@ -127,7 +125,7 @@
 											<div class="info-box-content">
 												<p class="info-box-title">Email Us</p>
 												<?php
-												$email = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $email['content']));
+												$email = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $settings['email']['content']));
 
 												$emailArray = explode(",", $email);
 
@@ -231,7 +229,7 @@
 			<!--/ Navigation end -->
 		</header>
 		<!--/ Header end -->
-		<?php if (isset($pages)) $this->load->view($pages) ?>
+		<?php if (isset($pages)) $this->load->view($pages); ?>
 
 		<footer id="footer" class="footer">
 			<div class="footer-main">
@@ -240,14 +238,13 @@
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
 							<h3 class="widget-title">About Us</h3>
 							<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
-							<?= $tentang['content'] ?>
+							<?= $settings['tentang']['content'] ?>
 							<div class="footer-social">
 								<ul>
-									<li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="https://twitter.com/themefisher" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+									<li><a href="<?= $settings['facebook']['content'] ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a href="<?= $settings['twitter']['content'] ?>" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 									</li>
-									<li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-									<li><a href="https://github.com/themefisher" aria-label="Github"><i class="fab fa-github"></i></a></li>
+									<li><a href="<?= $settings['instagram']['content'] ?>" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
 								</ul>
 							</div>
 							<!-- Footer social end -->
@@ -266,7 +263,7 @@
 						</div>
 						<!-- Col end -->
 
-						<div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+						<!-- <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
 							<h3 class="widget-title">Services</h3>
 							<ul class="list-arrow">
 								<li><a href="service-single.html">Pre-Construction</a></li>
@@ -275,7 +272,7 @@
 								<li><a href="service-single.html">Design and Build</a></li>
 								<li><a href="service-single.html">Self-Perform Construction</a></li>
 							</ul>
-						</div>
+						</div> -->
 						<!-- Col end -->
 					</div>
 					<!-- Row end -->
@@ -291,24 +288,23 @@
 							<div class="copyright-info text-center">
 								<span>Copyright &copy; <script>
 										document.write(new Date().getFullYear())
-									</script>, Designed &amp; Developed by <a href="https://themefisher.com">Themefisher</a></span>
+									</script>, Persona Quality
+								</span>
 							</div>
 						</div>
 
 						<div class="col-md-12">
 							<div class="copyright-info text-center">
-								<span>Distributed by <a href="https://themewagon.com/">Themewagon</a></span>
+								<span>Template Designed &amp; Developed by <a href="https://themefisher.com">Themefisher</a></span>
 							</div>
 						</div>
 
 						<div class="col-md-12">
 							<div class="footer-menu text-center">
 								<ul class="list-unstyled mb-0">
-									<li><a href="about.html">About</a></li>
-									<li><a href="team.html">Our people</a></li>
-									<li><a href="faq.html">Faq</a></li>
-									<li><a href="news-left-sidebar.html">Blog</a></li>
-									<li><a href="pricing.html">Pricing</a></li>
+									<li><a href="<?= base_url('company/about') ?>">About</a></li>
+									<li><a href="<?= base_url('company/team') ?>">Our people</a></li>
+									<li><a href="<?= base_url('article') ?>">Article</a></li>
 								</ul>
 							</div>
 						</div>

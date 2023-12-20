@@ -13,20 +13,35 @@ class Article extends CI_Controller
 
         if (!$this->session->userdata('is_logged_in')) {
             $this->session->set_flashdata('message_name', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			You have to login first.
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-			</div>');
+            You have to login first.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>');
             redirect('auth');
         }
     }
 
+    private function loadArticleView($page, $data)
+    {
+        $data['title'] = 'Article';
+        $data['pages'] = "pages/dashboard/article/{$page}";
+        $this->load->view('pages/dashboard/index', $data);
+    }
+
     public function index()
     {
-        $data = [
-            'title' => 'Article',
-            'pages' => 'pages/dashboard/article/v_article',
-            'articles' => $this->M_Article->list_dashboard(),
-        ];
-        $this->load->view('pages/dashboard/index', $data);
+        $data['articles'] = $this->M_Article->list_dashboard();
+        $this->loadArticleView('v_article', $data);
+    }
+
+    public function create()
+    {
+        $data['categories'] = $this->M_Article->category();
+
+        if (!$data['categories']) {
+            $this->session->set_flashdata('message_error', 'Article category is empty. Please add some category before you can create a new article.');
+            $this->loadArticleView('v_category', $data);
+        } else {
+            $this->loadArticleView('v_create', $data);
+        }
     }
 }

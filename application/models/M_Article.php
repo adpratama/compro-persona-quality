@@ -14,4 +14,19 @@ class M_Article extends CI_Model
     {
         return $this->db->order_by('judul', 'ASC')->get('article_view')->result();
     }
+
+    public function category()
+    {
+        return $this->db->order_by('category_name', 'ASC')->get('article_category')->result();
+    }
+
+    public function detail_category($slug)
+    {
+        return $this->db->where('slug', $slug)->get('article_category')->row_array();
+    }
+
+    public function add_category($data)
+    {
+        return $this->db->insert('article_category', $data);
+    }
 }
