@@ -1,6 +1,6 @@
 <div class="banner-carousel banner-carousel-1 mb-0">
     <div class="banner-carousel-item" style="background-image:url(<?= base_url('assets/front/') ?>images/slider-main/bg6.jpg)">
-        <div class="slider-content">
+        <!-- <div class="slider-content">
             <div class="container h-100">
                 <div class="row align-items-center h-100">
                     <div class="col-md-12 text-center">
@@ -13,11 +13,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="banner-carousel-item" style="background-image:url(<?= base_url('assets/front/') ?>images/slider-main/bg7.jpg)">
-        <div class="slider-content text-left">
+        <!-- <div class="slider-content text-left">
             <div class="container h-100">
                 <div class="row align-items-center h-100">
                     <div class="col-md-12">
@@ -30,11 +30,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="banner-carousel-item" style="background-image:url(<?= base_url('assets/front/') ?>images/slider-main/bg8.jpg)">
-        <div class="slider-content text-right">
+        <!-- <div class="slider-content text-right">
             <div class="container h-100">
                 <div class="row align-items-center h-100">
                     <div class="col-md-12">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -126,7 +126,7 @@
             <!-- Col end -->
 
             <div class="col-lg-6 mt-4 mt-lg-0">
-                <h3 class="into-sub-title">Our Values</h3>
+                <h3 class="into-sub-title">Nilai kami</h3>
                 <p>Dalam memberikan jasanya, Persona Quality memegang teguh nilai-nilai yang dianutnya.</p>
 
                 <div class="accordion accordion-group" id="our-values-accordion">
@@ -170,7 +170,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">We Are Specialists In</h2>
+                <h2 class="section-title">Kami ahli dalam</h2>
                 <h3 class="section-sub-title">One Stop Psychological Services</h3>
             </div>
         </div>
@@ -179,9 +179,9 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon4.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Sistem Pengelolaan SDM</a></h3>
                         <p>Membantu perusahaan untuk merancang dan membuat peraturan perusahaan, analisa dan uraian jabatan, sistem penggajian, performance appraisal, perencanaan karir dan penelitian</p>
@@ -191,9 +191,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon5.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Rekrutmen</a></h3>
                         <p>Psikotes dan wawancara STAR. Psikotes untuk pengukuran IQ, EQ, bakat dan kemampuan khusus dikaitkan dengan deskripsi kerja, gaya/sikap kerja, kemampuan adaptasi/interaksi, aspek-aspek kepribadian dikaitkan dengan deskripsi kerja</p>
@@ -203,9 +203,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact3.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Evaluasi</a></h3>
                         <p>Kegiatan penilaian, kinerja dimaksudkan untuk mengukur kinerja masing-masing tenaga kerja dalam mengembangkan dan meningkatkan kualitas kerja, 1. Assesment Competency; 2. Assessment Center</p>
@@ -214,9 +214,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Coaching</a></h3>
                         <p>Coaching adalah media bagi manager untuk memberikan arahan, pemahaman dan dorongan kepada karyawannya untuk memperbaiki kinerja melalui interaksi intensif</p>
@@ -225,9 +225,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Konseling</a></h3>
                         <p>Konseling adalah layanan konsultasi baik dalam bentuk konseling maupun terapi psikologi jika dibutuhkan</p>
@@ -236,9 +236,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon3.png" alt="service-icon">
-                    </div> -->
+                    <div class="ts-service-box-img">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Training</a></h3>
                         <p>Training yang dilakukan untuk meningkatkan kompetensi karyawan dalam mengatasi tugas diposisi yang dituju</p>
@@ -247,9 +247,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
+                    <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2.png" alt="service-icon">
-                    </div> -->
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Seminar</a></h3>
                         <p>Memberikan ceramah dan seminar sesuai kebutuhan dan permintaan klien</p>
@@ -258,9 +258,9 @@
             </div>
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
-                    <!-- <div class="ts-service-box-img">
+                    <div class="ts-service-box-img">
                         <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1.png" alt="service-icon">
-                    </div> -->
+                    </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Persiapan Pensiun</a></h3>
                         <p>Pelatihan untuk mempersiapkan karyawan agar dapat menyesuaikan diri dengan masa pensiun</p>
@@ -280,12 +280,12 @@
 
         <div class="row text-center">
             <div class="col-lg-12">
-                <h3 class="section-sub-title">Happy Clients</h3>
+                <h3 class="section-sub-title">Klien kami</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12 mt-5 mt-lg-0">
-                <div class="row all-clients">
+                <div class="row all-clients single-item">
                     <?php
                     foreach ($clients as $c) {
                     ?>
@@ -313,7 +313,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h3 class="section-sub-title">Our Teams</h3>
+                <h3 class="section-sub-title">Tim kami</h3>
             </div>
         </div>
         <!--/ Title row end -->

@@ -42,7 +42,7 @@
                                     <td><?= $a->category_name ?></td>
                                     <td><?= $a->judul ?></td>
                                     <td>
-                                        <a href="<?= base_url('dash/article/edit/') . $c->slug ?>" class="btn btn-primary btn-sm">
+                                        <a href="<?= base_url('dash/article/edit/') . $a->slug ?>" class="btn btn-primary btn-sm">
 
                                             <i class="bi bi-pencil"></i>
                                         </a>

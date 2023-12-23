@@ -29,4 +29,9 @@ class M_Article extends CI_Model
     {
         return $this->db->insert('article_category', $data);
     }
+
+    public function add_article($data)
+    {
+        return $this->db->insert('article', $data);
+    }
 }

@@ -13,18 +13,23 @@ class M_Client extends CI_Model
         return $this->db->where('slug', $slug)->get('client')->row_array();
     }
 
+    public function add_data($data)
+    {
+        return $this->db->insert('client', $data);
+    }
+
     public function update_data($data, $old_slug)
     {
-        $this->db->where('slug', $old_slug)->update('client', $data);
+        return $this->db->where('slug', $old_slug)->update('client', $data);
     }
 
     public function update_photo($data, $slug)
     {
-        $this->db->where('slug', $slug)->update('client', $data);
+        return $this->db->where('slug', $slug)->update('client', $data);
     }
 
     public function delete($slug)
     {
-        $this->db->where('slug', $slug)->delete('client');
+        return $this->db->where('slug', $slug)->delete('client');
     }
 }

@@ -15,7 +15,7 @@ class Home extends CI_Controller
 	public function index()
 	{
 		$data = [
-			"title" => "Home",
+			"title" => "Beranda",
 			'pages' => 'pages/v_home',
 			'clients' => $this->M_Client->list(),
 			'tentang' => $this->M_Setting->setting('tentang'),

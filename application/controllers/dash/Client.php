@@ -36,20 +36,33 @@ class Client extends CI_Controller
     {
         $old_slug = $this->uri->segment(4);
         $client_name = $this->input->post('client_name');
+        $data = ['name' => $client_name];
 
-        switch ($_POST['submit']) {
-            case self::UPDATE_NAMA:
-                $data = ['name' => $client_name];
-                $this->M_Client->update_data($data, $old_slug);
-                break;
+        if ($old_slug) {
 
-            case self::UPDATE_LOGO:
-                $this->handleLogoUpdate($old_slug);
-                break;
+            switch ($_POST['submit']) {
+                case self::UPDATE_NAMA:
+                    $this->M_Client->update_data($data, $old_slug);
+                    break;
 
-            default:
-                // Default case
-                break;
+                case self::UPDATE_LOGO:
+                    $this->handleLogoUpdate($old_slug);
+                    break;
+
+                default:
+                    // Default case
+                    break;
+            }
+        } else {
+
+            $upload_path = 'assets/front/images/clients/';
+            $slug = url_title($this->input->post('client_name'), 'dash', TRUE);
+            $data['logo'] = $this->uploadPhoto($slug, $upload_path);
+            $this->M_Client->add_data($data);
+
+            $this->session->set_flashdata('message_name', $data['name'] . ' berhasil ditambahkan.');
+
+            redirect('dash/client');
         }
     }
 

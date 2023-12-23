@@ -103,7 +103,7 @@
 									<li>
 										<div class="info-box">
 											<div class="info-box-content">
-												<p class="info-box-title">Call Us</p>
+												<p class="info-box-title">Hubungi kami</p>
 												<?php
 												$telepon = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $settings['telepon']['content']));
 
@@ -123,7 +123,7 @@
 									<li>
 										<div class="info-box">
 											<div class="info-box-content">
-												<p class="info-box-title">Email Us</p>
+												<p class="info-box-title">Email Kami</p>
 												<?php
 												$email = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", ","], $settings['email']['content']));
 
@@ -140,6 +140,14 @@
 											</div>
 										</div>
 									</li>
+									<li>
+										<div class="info-box">
+											<div class="info-box-content">
+												<p class="info-box-title">Situs web</p>
+												<p class="info-box-subtitle">personaquality.co.id</p>
+											</div>
+										</div>
+									</li>
 									<li class="header-get-a-quote">
 										<?php
 										if (empty($this->session->userdata('username'))) {
@@ -147,7 +155,7 @@
 											$url_text = "Masuk";
 										} else {
 											$url_auth = base_url('dashboard');
-											$url_text = "Dashboard"; ?>
+											$url_text = "Dasbor"; ?>
 										<?php
 										}
 										?>
@@ -178,30 +186,31 @@
 								<div id="navbar-collapse" class="collapse navbar-collapse">
 									<ul class="nav navbar-nav mr-auto">
 										<li class="nav-item  <?= ($this->uri->segment(1) == "home" or $this->uri->segment(1) == "") ? 'active' : '' ?>">
-											<a href="<?= base_url('home') ?>" class="nav-link">Home</a>
+											<a href="<?= base_url('home') ?>" class="nav-link">Beranda</a>
 										</li>
 										<li class="nav-item dropdown  <?= ($this->uri->segment(1) == "company") ? 'active' : '' ?>">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Company <i class="fa fa-angle-down"></i></a>
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Perusahaan <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">About Us</a></li>
-												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Our Team</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">Tentang kami</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Tim kami</a></li>
 												<!-- <li><a href="testimonials.html">Testimonials</a></li>
 												<li><a href="faq.html">Faq</a></li> -->
 											</ul>
 										</li>
 										<li class="nav-item dropdown">
-											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services <i class="fa fa-angle-down"></i></a>
+											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li><a href="services.html">Services All</a></li>
-												<li><a href="service-single.html">Services Single</a></li>
+												<li><a href="services.html">Layanan Bantuan Karyawan (EAP)</a></li>
+												<li><a href="service-single.html">Pribadi dan Keluarga</a></li>
+												<li><a href="service-single.html">Penyelenggara Acara</a></li>
 											</ul>
 										</li>
 
 										<li class="nav-item">
-											<a href="#" class="nav-link">Articles</a>
+											<a href="#" class="nav-link">Artikel</a>
 										</li>
 
-										<li class="nav-item <?= ($this->uri->segment(1) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('contact') ?>">Contact</a></li>
+										<li class="nav-item <?= ($this->uri->segment(1) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('contact') ?>">Kontak</a></li>
 									</ul>
 								</div>
 							</nav>
@@ -236,8 +245,10 @@
 				<div class="container">
 					<div class="row justify-content-between">
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
-							<h3 class="widget-title">About Us</h3>
-							<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
+							<h3 class="widget-title">Tentang kami</h3>
+							<div class="footer-logo-container">
+								<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
+							</div>
 							<?= $settings['tentang']['content'] ?>
 							<div class="footer-social">
 								<ul>
@@ -252,14 +263,14 @@
 						<!-- Col end -->
 
 						<div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
-							<h3 class="widget-title">Working Hours</h3>
+							<h3 class="widget-title">Jam kerja</h3>
 							<div class="working-hours">
-								We work 7 days a week, every day excluding major holidays. Contact us if you have an emergency, with our
-								Hotline and Contact form.
-								<br><br> Monday - Friday: <span class="text-right">10:00 - 16:00 </span>
-								<br> Saturday: <span class="text-right">12:00 - 15:00</span>
-								<br> Sunday and holidays: <span class="text-right">09:00 - 12:00</span>
+								Kami bekerja 5 hari seminggu, dari hari Senin hingga Jumat. Hubungi kami jika Anda memiliki keadaan darurat, dengan kami
+								Hotline dan formulir Kontak.
+								<br><br> Senin - Kamis: <span class="text-right">08:00 - 17:00 </span>
+								<br> Jumat: <span class="text-right">08:00 - 17:30</span>
 							</div>
+							<!--  senin - kamis jam 08.00 - 17.00. dan untuk jumatnya mas jam 08.00-17.30  -->
 						</div>
 						<!-- Col end -->
 
@@ -302,9 +313,9 @@
 						<div class="col-md-12">
 							<div class="footer-menu text-center">
 								<ul class="list-unstyled mb-0">
-									<li><a href="<?= base_url('company/about') ?>">About</a></li>
-									<li><a href="<?= base_url('company/team') ?>">Our people</a></li>
-									<li><a href="<?= base_url('article') ?>">Article</a></li>
+									<li><a href="<?= base_url('company/about') ?>">Tentang</a></li>
+									<li><a href="<?= base_url('company/team') ?>">Tim</a></li>
+									<li><a href="<?= base_url('article') ?>">Artikel</a></li>
 								</ul>
 							</div>
 						</div>
@@ -361,7 +372,7 @@
 		// $('.single-item').slick();
 
 		$('.single-item').slick({
-			slidesToShow: 4,
+			slidesToShow: 6,
 			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 2000,
