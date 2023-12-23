@@ -5,16 +5,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-heading">
-                        <h1 class="banner-title">About</h1>
+                        <h1 class="banner-title">Tentang</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item">
                                     <a href="#">Home</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#">company</a>
+                                    <a href="#">Perusahaan</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                                <li class="breadcrumb-item active" aria-current="page">Tentang</li>
                             </ol>
                         </nav>
                     </div>

@@ -4,16 +4,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-heading">
-                        <h1 class="banner-title">Teams</h1>
+                        <h1 class="banner-title">Tim</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
+                                    <a href="#">Beranda</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#">company</a>
+                                    <a href="#">Perusahaan</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Our Team</li>
+                                <li class="breadcrumb-item active" aria-current="page">Tim kami</li>
                             </ol>
                         </nav>
                     </div>
@@ -32,8 +32,8 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12">
-                <h2 class="section-title">Quality Service</h2>
-                <h3 class="section-sub-title">Professional Team</h3>
+                <!-- <h2 class="section-title">Quality Service</h2> -->
+                <h3 class="section-sub-title">Tim profesional</h3>
             </div>
         </div>
         <!--/ Title row end -->

@@ -2855,7 +2855,7 @@ img.testimonial-thumb {
   padding: 15px 25px;
   margin-top: 0;
   color: #fff;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(97 31 31 / 60%);
   transition: 350ms;
 }
 
@@ -2876,7 +2876,7 @@ img.testimonial-thumb {
   margin-top: 0;
   margin-bottom: 3px;
   line-height: normal;
-  color: #611f1f;
+  color: #fff;
 }
 
 .ts-team-wrapper .ts-designation {

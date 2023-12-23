@@ -170,7 +170,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">Kami ahli dalam</h2>
+                <!-- <h2 class="section-title">Kami ahli dalam</h2> -->
                 <h3 class="section-sub-title">One Stop Psychological Services</h3>
             </div>
         </div>
@@ -318,7 +318,7 @@
         </div>
         <!--/ Title row end -->
 
-        <div class="row justify-content-center single-item">
+        <div class="row justify-content-center item-carousel">
             <?php
             foreach ($teams as $t) {
             ?>
@@ -358,8 +358,8 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">Work of Excellence</h2>
-                <h3 class="section-sub-title">Recent Projects</h3>
+                <!-- <h2 class="section-title">Work of Excellence</h2> -->
+                <h3 class="section-sub-title">Artikel</h3>
             </div>
         </div>
         <!--/ Title row end -->

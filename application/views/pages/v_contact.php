@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-heading">
-                        <h1 class="banner-title">Contact</h1>
+                        <h1 class="banner-title">Kontak</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                                <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Kontak</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,8 +27,8 @@
 
         <div class="row text-center">
             <div class="col-12">
-                <h2 class="section-title">Reaching our Office</h2>
-                <h3 class="section-sub-title">Find Our Location</h3>
+                <!-- <h2 class="section-title">Reaching our Office</h2> -->
+                <h3 class="section-sub-title">Lokasi kami</h3>
             </div>
         </div>
         <!--/ Title row end -->
@@ -40,7 +40,7 @@
                         <i class="fas fa-map-marker-alt mr-0"></i>
                     </span>
                     <div class="ts-service-box-content">
-                        <h4>Visit Our Office</h4>
+                        <h4>Kunjungi kantor kami</h4>
                         <?= $alamat['content'] ?>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         <i class="fa fa-envelope mr-0"></i>
                     </span>
                     <div class="ts-service-box-content">
-                        <h4>Email Us</h4>
+                        <h4>Email Kami</h4>
                         <?php
                         $email = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", "<br>"], $email['content']));
                         ?>
@@ -69,7 +69,7 @@
                         <i class="fa fa-phone-square mr-0"></i>
                     </span>
                     <div class="ts-service-box-content">
-                        <h4>Call Us</h4>
+                        <h4>Hubungi kami</h4>
                         <?php
                         $telepon = trim(preg_replace(["/<p>/", "/<\/p>/"], ["", "<br>"], $telepon['content']));
                         ?>

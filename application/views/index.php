@@ -92,7 +92,7 @@
 					<div class="logo-area">
 						<div class="row align-items-center">
 							<div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-								<a class="d-block" href="index.html">
+								<a class="d-block" href="<?= base_url() ?>">
 									<img loading="lazy" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
 								</a>
 							</div>
@@ -247,7 +247,7 @@
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
 							<h3 class="widget-title">Tentang kami</h3>
 							<div class="footer-logo-container">
-								<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
+								<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo-stroke.png" alt="Constra">
 							</div>
 							<?= $settings['tentang']['content'] ?>
 							<div class="footer-social">
