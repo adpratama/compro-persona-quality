@@ -180,7 +180,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Sistem Pengelolaan SDM</a></h3>
@@ -192,7 +192,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon6-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Rekrutmen</a></h3>
@@ -204,7 +204,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact3.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact3-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Evaluasi</a></h3>
@@ -215,7 +215,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Coaching</a></h3>
@@ -226,7 +226,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Konseling</a></h3>
@@ -237,7 +237,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/fact2-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Training</a></h3>
@@ -248,7 +248,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon2-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Seminar</a></h3>
@@ -259,7 +259,7 @@
             <div class="col-lg-3">
                 <div class="ts-service-box d-flex">
                     <div class="ts-service-box-img">
-                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1.png" alt="service-icon">
+                        <img loading="lazy" src="<?= base_url('assets/front/') ?>images/icon-image/service-icon1-maroon.png" alt="service-icon">
                     </div>
                     <div class="ts-service-box-info">
                         <h3 class="service-box-title"><a href="#">Persiapan Pensiun</a></h3>
