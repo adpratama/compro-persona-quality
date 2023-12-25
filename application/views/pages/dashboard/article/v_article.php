@@ -42,10 +42,17 @@
                                     <td><?= $a->category_name ?></td>
                                     <td><?= $a->judul ?></td>
                                     <td>
-                                        <a href="<?= base_url('dash/article/edit/') . $a->slug ?>" class="btn btn-primary btn-sm">
+                                        <div class="btn-group">
 
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
+                                            <a href="<?= base_url('dash/article/edit/') . $a->slug ?>" class="btn btn-primary btn-sm">
+
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+
+                                            <a href="<?= base_url('dash/article/delete/' . $a->slug) ?>" class="btn btn-danger btn-sm btn-process" id="btnHapus">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php

@@ -9,7 +9,7 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->helper('date');
-		$this->load->model(array('M_Client', 'M_Setting', 'M_Team'));
+		$this->load->model(array('M_Client', 'M_Setting', 'M_Team', 'M_Article'));
 	}
 
 	public function index()
@@ -21,6 +21,7 @@ class Home extends CI_Controller
 			'tentang' => $this->M_Setting->setting('tentang'),
 			'values' => $this->M_Setting->our_values(),
 			'teams' => $this->M_Team->list(),
+			'articles' => $this->M_Article->list_limit('3', '0'),
 		];
 
 		$this->load->view('index', $data);

@@ -193,24 +193,24 @@
 											<ul class="dropdown-menu" role="menu">
 												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">Tentang kami</a></li>
 												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Tim kami</a></li>
-												<!-- <li><a href="testimonials.html">Testimonials</a></li>
-												<li><a href="faq.html">Faq</a></li> -->
 											</ul>
 										</li>
 										<li class="nav-item dropdown">
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li><a href="services.html">Layanan Bantuan Karyawan (EAP)</a></li>
-												<li><a href="service-single.html">Pribadi dan Keluarga</a></li>
-												<li><a href="service-single.html">Penyelenggara Acara</a></li>
+												<li><a href="#">Layanan Bantuan Karyawan (EAP)</a></li>
+												<li><a href="#">Pribadi dan Keluarga</a></li>
+												<li><a href="#">Penyelenggara Acara</a></li>
 											</ul>
 										</li>
 
-										<li class="nav-item">
-											<a href="#" class="nav-link">Artikel</a>
+										<li class="nav-item <?= ($this->uri->segment(1) == 'article') ? 'active' : '' ?>">
+											<a href="<?= base_url('article') ?>" class="nav-link">Artikel</a>
 										</li>
 
-										<li class="nav-item <?= ($this->uri->segment(1) == 'contact') ? 'active' : '' ?>"><a class="nav-link" href="<?= base_url('contact') ?>">Kontak</a></li>
+										<li class="nav-item <?= ($this->uri->segment(1) == 'contact') ? 'active' : '' ?>">
+											<a class="nav-link" href="<?= base_url('contact') ?>">Kontak</a>
+										</li>
 									</ul>
 								</div>
 							</nav>
