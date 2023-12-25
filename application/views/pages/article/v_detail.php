@@ -7,7 +7,7 @@
                         <h1 class="banner-title">Artikel</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                                 <li class="breadcrumb-item"><a href="#">Artikel</a></li>
                             </ol>
                         </nav>
@@ -24,7 +24,7 @@
             <div class="col-lg-8 mb-5 mb-lg-0">
 
                 <div class="post-content post-single">
-                    <div class="post-media post-image">
+                    <div class="post-media post-image text-center">
                         <img loading="lazy" src="<?= base_url('assets/front/images/articles/' . $article['photo']) ?>" class="img-fluid" alt="post-image">
                     </div>
 
@@ -37,7 +37,7 @@
                                 <span class="post-cat">
                                     <i class="far fa-folder-open"></i><a href="#"> <?= $article['category_name'] ?></a>
                                 </span>
-                                <span class="post-meta-date"><i class="far fa-calendar"></i> June 14, 2016</span>
+                                <span class="post-meta-date"><i class="far fa-calendar"></i> <?= format_indo($article['created_at']) ?></span>
                             </div>
                             <h2 class="entry-title">
                                 <?= $article['judul'] ?>

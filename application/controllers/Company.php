@@ -9,7 +9,7 @@ class Company extends CI_Controller
     {
         parent::__construct();
         $this->load->helper(['form', 'url', 'date']);
-        $this->load->model(['M_Client', 'M_Setting', 'M_Team']);
+        $this->load->model(['M_Client', 'M_Setting', 'M_Team', 'M_Service']);
         $this->data['values'] = $this->M_Setting->our_values();
     }
 

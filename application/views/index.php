@@ -44,6 +44,8 @@
 	<div class="body-inner">
 
 		<?php
+		$this->load->model('M_Service');
+		$services = $this->M_Service->list();
 		$setting_names = ['telepon', 'email', 'alamat', 'tentang', 'facebook', 'twitter', 'instagram'];
 		$settings = [];
 
@@ -195,12 +197,16 @@
 												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Tim kami</a></li>
 											</ul>
 										</li>
-										<li class="nav-item dropdown">
+										<li class="nav-item dropdown <?= ($this->uri->segment(1) == "service") ? 'active' : '' ?>">
 											<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Layanan <i class="fa fa-angle-down"></i></a>
 											<ul class="dropdown-menu" role="menu">
-												<li><a href="#">Layanan Bantuan Karyawan (EAP)</a></li>
-												<li><a href="#">Pribadi dan Keluarga</a></li>
-												<li><a href="#">Penyelenggara Acara</a></li>
+												<?php
+												foreach ($services as $s) :
+												?>
+													<li><a href="<?= base_url('service/read/' . $s->slug) ?>"><?= $s->judul ?></a></li>
+												<?php
+												endforeach;
+												?>
 											</ul>
 										</li>
 

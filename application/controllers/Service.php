@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Article extends CI_Controller
+class Service extends CI_Controller
 {
 
     public function __construct()
@@ -9,7 +9,7 @@ class Article extends CI_Controller
         parent::__construct();
         $this->load->helper(array('form', 'url'));
         $this->load->helper('date');
-        $this->load->model(array('M_Article', 'M_Setting', 'M_Service'));
+        $this->load->model(array('M_Service', 'M_Setting'));
         $this->load->library(array('pagination'));
     }
 
@@ -17,8 +17,8 @@ class Article extends CI_Controller
 
     public function index()
     {
-        $config['base_url'] = base_url('article/index');
-        $config['total_rows'] = $this->M_Article->get_published_count();
+        $config['base_url'] = base_url('service/index');
+        $config['total_rows'] = $this->M_Service->get_published_count();
         $config['per_page'] = 5;
         $config['num_link'] = 5;
         $config['full_tag_open'] = '<nav class="paging" aria-label="Page navigation example"><ul class="pagination">';
@@ -48,11 +48,10 @@ class Article extends CI_Controller
         $limit = $config['per_page'];
 
         $data = [
-            'title' => "Artikel",
-            'pages' => 'pages/article/v_article',
-            'article' => $this->M_Article->list_limit($limit, $from),
-            'categories' => $this->M_Article->category(),
-            'articles' => $this->M_Article->list_limit('3', '0'),
+            'title' => "Layanan",
+            'pages' => 'pages/service/v_service',
+            'service' => $this->M_Service->list_limit($limit, $from),
+            'services' => $this->M_Service->list_limit('3', '0'),
         ];
 
         $this->load->view('index', $data);
@@ -63,14 +62,13 @@ class Article extends CI_Controller
     {
         $slug = $this->uri->segment(3);
 
-        $detail = $this->M_Article->detail($slug);
+        $detail = $this->M_Service->detail($slug);
 
         $data = [
             "title" => $detail['judul'],
-            'pages' => 'pages/article/v_detail',
-            'article' => $detail,
-            'articles' => $this->M_Article->list_limit('3', '0'),
-            'categories' => $this->M_Article->category(),
+            'pages' => 'pages/v_services',
+            'service' => $detail,
+            'items' => $this->M_Service->items($detail['Id'])
         ];
 
         $this->load->view('index', $data);

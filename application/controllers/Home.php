@@ -9,7 +9,7 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->helper('date');
-		$this->load->model(array('M_Client', 'M_Setting', 'M_Team', 'M_Article'));
+		$this->load->model(array('M_Client', 'M_Setting', 'M_Team', 'M_Article', 'M_Service'));
 	}
 
 	public function index()

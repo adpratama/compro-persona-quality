@@ -128,6 +128,13 @@
                     <span>Teams</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link  <?php if ($this->uri->segment(2) != 'service') echo 'collapsed' ?>" href="<?= base_url('dash/service') ?>">
+                    <i class="bi bi-person"></i>
+                    <span>Services</span>
+                </a>
+            </li>
             <!-- End Dashboard Nav -->
 
             <li class="nav-heading">Settings</li>

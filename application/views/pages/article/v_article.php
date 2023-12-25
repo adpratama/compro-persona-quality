@@ -39,6 +39,7 @@
                                     <span class="post-cat">
                                         <i class="far fa-folder-open"></i><a href="#"> <?= $a->category_name ?></a>
                                     </span>
+                                    <span class="post-meta-date"><i class="far fa-calendar"></i> <?= format_indo($a->created_at) ?></span>
                                 </div>
                                 <h2 class="entry-title">
                                     <a href="<?= base_url('article/read/') . $a->slug ?>"><?= $a->judul ?></a>
