@@ -354,8 +354,7 @@
 			dots: false,
 			slidesToShow: 6,
 			slidesToScroll: 1,
-			prevArrow: $('.slick-prev'),
-			nextArrow: $('.slick-next'),
+			arrows: true,
 			responsive: [{
 					breakpoint: 1024,
 					settings: {

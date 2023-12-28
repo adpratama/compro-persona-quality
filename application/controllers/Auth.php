@@ -85,7 +85,7 @@ class Auth extends CI_Controller
     public function registration()
     {
         if ($this->session->userdata('is_logged_in')) {
-            redirect('dashboard/dashboard');
+            redirect('dash/dashboard');
         }
 
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -105,12 +105,12 @@ class Auth extends CI_Controller
 
             $data = [
                 'title' => 'User Registration',
-                'style' => 'dashboard/layouts/_style',
-                'pages' => 'dashboard/pages/auth/v_registration',
-                'script' => 'dashboard/layouts/_script'
+                // 'style' => 'dashboard/layouts/_style',
+                'pages' => 'pages/auth/v_registration',
+                // 'script' => 'dashboard/layouts/_script'
             ];
 
-            $this->load->view('dashboard/pages/auth/index', $data);
+            $this->load->view('pages/auth/index', $data);
         } else {
             $data = [
                 'name' => htmlspecialchars($this->input->post('name', true)),
