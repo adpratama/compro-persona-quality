@@ -42,7 +42,7 @@ class Company extends CI_Controller
         $this->data += [
             "title" => "Klien",
             'pages' => 'pages/v_client',
-            'teams' => $this->M_Team->list(),
+            'clients' => $this->M_Client->list(),
         ];
 
         $this->load->view('index', $this->data);
