@@ -37,6 +37,8 @@ class Client extends CI_Controller
         $old_slug = $this->uri->segment(4);
         $client_name = $this->input->post('client_name');
         $data = ['name' => $client_name];
+        $user_id = $this->session->userdata('user_id');
+        $now = date('Y-m-d H:i:s');
 
         if ($old_slug) {
 
@@ -58,6 +60,8 @@ class Client extends CI_Controller
             $upload_path = 'assets/front/images/clients/';
             $slug = url_title($this->input->post('client_name'), 'dash', TRUE);
             $data['logo'] = $this->uploadPhoto($slug, $upload_path);
+            $data['created_at'] = $now;
+            $data['created_by'] = $user_id;
             $this->M_Client->add_data($data);
 
             $this->session->set_flashdata('message_name', $data['name'] . ' berhasil ditambahkan.');
@@ -132,5 +136,8 @@ class Client extends CI_Controller
         $old_data = $this->M_Client->detail($slug);
         $this->deleteOldPhoto($old_data['logo'], 'assets/front/images/clients/');
         $this->M_Client->delete($slug);
+
+        $this->session->set_flashdata('message_name', 'Client berhasil dihapus.');
+        redirect($_SERVER['HTTP_REFERER']);
     }
 }
