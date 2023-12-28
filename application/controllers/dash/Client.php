@@ -102,11 +102,11 @@ class Client extends CI_Controller
 
         $config = [
             'upload_path' => $upload_path,
-            'allowed_types' => 'png|PNG',
+            'allowed_types' => 'png|PNG|SVG|svg',
             'overwrite' => TRUE,
             'max_size' => '99999999999',
-            'max_height' => '800',
-            'max_width' => '1500',
+            'max_height' => '1500',
+            'max_width' => '2000',
             'file_name' => $new_photo_file_name,
         ];
 

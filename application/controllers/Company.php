@@ -16,7 +16,7 @@ class Company extends CI_Controller
     public function about()
     {
         $this->data += [
-            "title" => "About us",
+            "title" => "Tentang",
             'pages' => 'pages/v_about',
             'visi' => $this->M_Setting->setting('visi'),
             'misi' => $this->M_Setting->setting('misi'),
@@ -29,8 +29,19 @@ class Company extends CI_Controller
     public function team()
     {
         $this->data += [
-            "title" => "Our team",
+            "title" => "Tim",
             'pages' => 'pages/v_team',
+            'teams' => $this->M_Team->list(),
+        ];
+
+        $this->load->view('index', $this->data);
+    }
+
+    public function client()
+    {
+        $this->data += [
+            "title" => "Klien",
+            'pages' => 'pages/v_client',
             'teams' => $this->M_Team->list(),
         ];
 

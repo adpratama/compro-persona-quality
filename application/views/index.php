@@ -195,6 +195,7 @@
 											<ul class="dropdown-menu" role="menu">
 												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">Tentang kami</a></li>
 												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Tim kami</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'client') ? 'active' : '' ?>"><a href="<?= base_url('company/client') ?>">Klien kami</a></li>
 											</ul>
 										</li>
 										<li class="nav-item dropdown <?= ($this->uri->segment(1) == "service") ? 'active' : '' ?>">
@@ -224,19 +225,6 @@
 						<!--/ Col end -->
 					</div>
 					<!--/ Row end -->
-
-					<!-- <div class="nav-search">
-						<span id="search"><i class="fa fa-search"></i></span>
-					</div> -->
-					<!-- Search end -->
-
-					<!-- <div class="search-block" style="display: none;">
-						<label for="search-field" class="w-100 mb-0">
-							<input type="text" class="form-control" id="search-field" placeholder="Type what you want and enter">
-						</label>
-						<span class="search-close">&times;</span>
-					</div> -->
-					<!-- Site search end -->
 				</div>
 				<!--/ Container end -->
 
@@ -253,9 +241,9 @@
 						<div class="col-lg-4 col-md-6 footer-widget footer-about">
 							<h3 class="widget-title">Tentang kami</h3>
 							<div class="footer-logo-container">
-								<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo-stroke.png" alt="Constra">
+								<img loading="lazy" class="footer-logo" src="<?= base_url('assets/front/') ?>images/logo.png" alt="Constra">
 							</div>
-							<?= $settings['tentang']['content'] ?>
+							<?= $settings['alamat']['content'] ?>
 							<div class="footer-social">
 								<ul>
 									<li><a href="<?= $settings['facebook']['content'] ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
@@ -271,25 +259,18 @@
 						<div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
 							<h3 class="widget-title">Jam kerja</h3>
 							<div class="working-hours">
-								Kami bekerja 5 hari seminggu, dari hari Senin hingga Jumat. Hubungi kami jika Anda memiliki keadaan darurat, dengan kami
-								Hotline dan formulir Kontak.
-								<br><br> Senin - Kamis: <span class="text-right">08:00 - 17:00 </span>
-								<br> Jumat: <span class="text-right">08:00 - 17:30</span>
+								Kami bekerja 5 hari seminggu, dari hari Senin hingga Jumat. Hubungi kami jika Anda memiliki keadaan darurat via nomor kontak atau email kami.
+								<br><br> Senin - Kamis <span class="text-right">: 08:00 - 17:00 </span>
+								<br> Jumat <span class="text-right">: 08:00 - 17:30</span>
 							</div>
-							<!--  senin - kamis jam 08.00 - 17.00. dan untuk jumatnya mas jam 08.00-17.30  -->
-						</div>
-						<!-- Col end -->
 
-						<!-- <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
-							<h3 class="widget-title">Services</h3>
-							<ul class="list-arrow">
-								<li><a href="service-single.html">Pre-Construction</a></li>
-								<li><a href="service-single.html">General Contracting</a></li>
-								<li><a href="service-single.html">Construction Management</a></li>
-								<li><a href="service-single.html">Design and Build</a></li>
-								<li><a href="service-single.html">Self-Perform Construction</a></li>
-							</ul>
-						</div> -->
+							<div class="working-hours">
+								<?= trim(preg_replace(["/<p>/", "/<\/p>/"], ["<br>", ""], $settings['telepon']['content']))  ?>
+							</div>
+							<div class="working-hours">
+								<?= trim(preg_replace(["/<p>/", "/<\/p>/"], ["<br>", ""], $settings['email']['content']))  ?>
+							</div>
+						</div>
 						<!-- Col end -->
 					</div>
 					<!-- Row end -->
@@ -342,9 +323,7 @@
 		<!-- Footer end -->
 
 
-		<!-- Javascript Files
-  ================================================== -->
-
+		<!-- Javascript Files ================================================== -->
 		<!-- initialize jQuery Library -->
 		<script src="<?= base_url('assets/front/') ?>plugins/jQuery/jquery.min.js"></script>
 		<!-- Bootstrap jQuery -->
@@ -356,12 +335,6 @@
 		<script src="<?= base_url('assets/front/') ?>plugins/colorbox/jquery.colorbox.js"></script>
 		<!-- shuffle -->
 		<script src="<?= base_url('assets/front/') ?>plugins/shuffle/shuffle.min.js" defer></script>
-
-
-		<!-- Google Map API Key-->
-		<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script> -->
-		<!-- Google Map Plugin-->
-		<!-- <script src="<?= base_url('assets/front/') ?>plugins/google-map/map.js" defer></script> -->
 
 		<!-- Template custom -->
 		<script src="<?= base_url('assets/front/') ?>js/script.js"></script>
@@ -375,8 +348,6 @@
 		});
 	</script>
 	<script>
-		// $('.single-item').slick();
-
 		$('.single-item').slick({
 			autoplay: true,
 			autoplaySpeed: 2000,
