@@ -30,18 +30,19 @@
 <section class="content">
     <div class="container">
 
-        <!-- <div class="row text-center">
+        <div class="row text-center">
             <div class="col-lg-12">
                 <h3 class="section-sub-title">Klien kami</h3>
+                <p>Kami dengan bangga bermitra dengan berbagai perusahaan dan individu untuk memberikan solusi yang memenuhi kebutuhan mereka. Dari perusahaan start-up yang inovatif hingga merek besar yang mapan, kami senantiasa berkomitmen untuk memberikan layanan terbaik dan solusi yang tepat.</p>
             </div>
-        </div> -->
+        </div>
         <div class="row">
             <div class="col-lg-12 mt-5 mt-lg-0">
                 <div class="row all-clients">
                     <?php
                     foreach ($clients as $c) {
                     ?>
-                        <div class="col-sm-2 col-6">
+                        <div class="col-sm-3 col-6">
                             <figure class="clients-logo">
                                 <img loading="lazy" class="img-fluid-client" src="<?= base_url('assets/front/') ?>images/clients/<?= $c->logo ?>" alt="clients-logo" data-toggle="tooltip" title="<?= $c->name ?>" />
                             </figure>
