@@ -10,12 +10,12 @@ class M_Team extends CI_Model
 
     public function is_available($slug)
     {
-        return $this->db->select('count(Id) as id')->where('slug', $slug)->get('client')->row_array();
+        return $this->db->select('count(Id) as id')->where('slug', $slug)->get('team')->row_array();
     }
 
     public function detail($slug)
     {
-        return $this->db->where('slug', $slug)->get('client')->row_array();
+        return $this->db->where('slug', $slug)->get('team')->row_array();
     }
 
     public function add_team($data)
@@ -27,22 +27,22 @@ class M_Team extends CI_Model
 
     public function update_data($data, $old_slug)
     {
-        $this->db->where('slug', $old_slug)->update('client', $data);
-        $this->session->set_flashdata('message_name', 'The client data updated successfully.');
+        $this->db->where('slug', $old_slug)->update('team', $data);
+        $this->session->set_flashdata('message_name', 'The team data updated successfully.');
         redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function update_photo($data, $slug)
     {
-        $this->db->where('slug', $slug)->update('client', $data);
+        $this->db->where('slug', $slug)->update('team', $data);
         $this->session->set_flashdata('message_name', 'The photo has been successfully modified.');
         redirect($_SERVER['HTTP_REFERER']);
     }
 
     public function delete($slug)
     {
-        $this->db->where('slug', $slug)->delete('client');
-        $this->session->set_flashdata('message_name', 'The client has been successfully deleted.');
+        $this->db->where('slug', $slug)->delete('team');
+        $this->session->set_flashdata('message_name', 'The team has been successfully deleted.');
         redirect($_SERVER['HTTP_REFERER']);
     }
 }
