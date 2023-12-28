@@ -41,9 +41,9 @@
                                     <td><?= $no++ ?>.</td>
                                     <td><?= $c->name ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editTeam<?= $c->slug ?>">
+                                        <!-- <button type="button" class="btn btn-primary btn-xs" data-bs-toggle="modal" data-bs-target="#editTeam<?= $c->slug ?>">
                                             <i class="bi bi-pencil-square"></i>
-                                        </button>
+                                        </button> -->
                                         <a href="<?= base_url('dash/client/delete/' . $c->slug) ?>" class="btn btn-danger btn-xs btn-delete">
                                             <i class="bi bi-trash"></i>
                                         </a>
