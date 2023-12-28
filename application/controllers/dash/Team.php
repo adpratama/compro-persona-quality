@@ -105,11 +105,11 @@ class Team extends CI_Controller
     {
         $photo = $_FILES['team_photo']['name'];
         $old_data = $this->M_Team->detail($old_slug);
-        $old_photo = $old_data['logo'];
+        $old_photo = $old_data['photo'];
 
         $this->deleteOldPhoto($old_photo);
 
-        $data['logo'] = $this->uploadPhoto($old_slug);
+        $data['photo'] = $this->uploadPhoto($old_slug);
     }
 
     private function deleteOldPhoto($photo)
@@ -122,7 +122,7 @@ class Team extends CI_Controller
 
     private function handleLogoUpload($slug, &$data)
     {
-        $data['logo'] = $this->uploadPhoto($slug);
+        $data['photo'] = $this->uploadPhoto($slug);
         $this->M_Team->add_team($data);
     }
 
@@ -138,8 +138,8 @@ class Team extends CI_Controller
             'allowed_types' => 'jpeg|jpg|JPEG|JPG',
             'overwrite' => TRUE,
             'max_size' => '99999999999',
-            'max_height' => '2000',
-            'max_width' => '2500',
+            'max_height' => '3000',
+            'max_width' => '3000',
             'file_name' => $new_photo_file_name,
         ];
 
@@ -163,7 +163,7 @@ class Team extends CI_Controller
     private function deleteTeam($slug)
     {
         $old_data = $this->M_Team->detail($slug);
-        $this->deleteOldPhoto($old_data['logo']);
+        $this->deleteOldPhoto($old_data['photo']);
         $this->M_Team->delete($slug);
     }
 }

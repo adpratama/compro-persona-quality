@@ -209,38 +209,42 @@
         </div>
         <!--/ Title row end -->
 
-        <div class="row justify-content-center item-carousel">
-            <?php
-            foreach ($teams as $t) {
-            ?>
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
-                    <div class="ts-team-wrapper">
-                        <div class="team-img-wrapper">
-                            <img loading="lazy" src="<?= base_url('assets/front/') ?>images/team/<?= $t->photo ?>" class="img-fluid" alt="team-img" />
-                        </div>
-                        <div class="ts-team-content-classic">
-                            <h3 class="ts-name"><?= $t->name ?></h3>
-                            <p class="ts-designation"><?= $t->jabatan ?></p>
-                            <!-- <p class="ts-description">
-                                Nats Stenman began his career in construction with
-                                boots on the ground
-                            </p> -->
-                            <div class="team-social-icons">
-                                <a target="_blank" href="<?= ($t->sm_facebook) ? $t->sm_facebook : '#' ?>"><i class="fab fa-facebook-f"></i></a>
-                                <a target="_blank" href="<?= ($t->sm_twitter) ? $t->sm_twitter : '#' ?>"><i class="fab fa-twitter"></i></a>
-                                <a target="_blank" href="<?= ($t->sm_instagram) ? $t->sm_instagram : '#' ?>"><i class="fab fa-instagram"></i></a>
-                                <a target="_blank" href="<?= ($t->sm_linkedin) ? $t->sm_linkedin : '#' ?>"><i class="fab fa-linkedin"></i></a>
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="team-slide" class="team-slide">
+                    <?php
+                    foreach ($teams as $t) {
+                    ?>
+                        <div class="item">
+                            <div class="ts-team-wrapper">
+                                <div class="team-img-wrapper">
+                                    <img loading="lazy" class="w-100" src="<?= base_url() ?>assets/front/images/team/<?= $t->photo ?>" alt="team-img">
+                                </div>
+                                <div class="ts-team-content">
+                                    <h3 class="ts-name"><?= $t->name ?></h3>
+                                    <p class="ts-designation"><?= $t->jabatan ?></p>
+                                    <!-- <p class="ts-description">Nats Stenman began his career in construction with boots on the ground</p> -->
+                                    <div class="team-social-icons">
+
+                                        <a target="_blank" href="<?= ($t->sm_facebook) ? $t->sm_facebook : '#' ?>"><i class="fab fa-facebook-f"></i></a>
+                                        <a target="_blank" href="<?= ($t->sm_twitter) ? $t->sm_twitter : '#' ?>"><i class="fab fa-twitter"></i></a>
+                                        <a target="_blank" href="<?= ($t->sm_instagram) ? $t->sm_instagram : '#' ?>"><i class="fab fa-instagram"></i></a>
+                                        <a target="_blank" href="<?= ($t->sm_linkedin) ? $t->sm_linkedin : '#' ?>"><i class="fab fa-linkedin"></i></a>
+                                    </div>
+                                    <!--/ social-icons-->
+                                </div>
                             </div>
-                            <!--/ social-icons-->
+                            <!--/ Team wrapper end -->
                         </div>
-                    </div>
-                    <!--/ Team wrapper 3 end -->
+                    <?php
+                    }
+                    ?>
+                    <!-- Team 1 end -->
+
                 </div>
-            <?php
-            }
-            ?>
+                <!-- Team slide end -->
+            </div>
         </div>
-        <!-- Content row end -->
     </div>
     <!-- Container end -->
 </section>

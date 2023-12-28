@@ -71,9 +71,9 @@
 								<a title="Facebook" href="<?= $settings['facebook']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-facebook-f"></i></span>
 								</a>
-								<a title="Twitter" href="<?= $settings['twitter']['content'] ?>">
+								<!-- <a title="Twitter" href="<?= $settings['twitter']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-twitter"></i></span>
-								</a>
+								</a> -->
 								<a title="Instagram" href="<?= $settings['instagram']['content'] ?>">
 									<span class="social-icon"><i class="fab fa-instagram"></i></span>
 								</a>
@@ -247,7 +247,7 @@
 							<div class="footer-social">
 								<ul>
 									<li><a href="<?= $settings['facebook']['content'] ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="<?= $settings['twitter']['content'] ?>" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+									<!-- <li><a href="<?= $settings['twitter']['content'] ?>" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
 									</li>
 									<li><a href="<?= $settings['instagram']['content'] ?>" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
 								</ul>
@@ -351,8 +351,11 @@
 		$('.single-item').slick({
 			autoplay: true,
 			autoplaySpeed: 2000,
+			dots: false,
 			slidesToShow: 6,
 			slidesToScroll: 1,
+			prevArrow: $('.slick-prev'),
+			nextArrow: $('.slick-next'),
 			responsive: [{
 					breakpoint: 1024,
 					settings: {
