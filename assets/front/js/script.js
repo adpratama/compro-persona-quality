@@ -208,9 +208,10 @@ jQuery(function ($) {
 			$(".testimonial-slide").slick({
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				dots: true,
+				dots: false,
 				speed: 600,
-				arrows: false,
+				arrows: true,
+				infinite: true,
 			});
 		}
 		testimonialCarousel();
