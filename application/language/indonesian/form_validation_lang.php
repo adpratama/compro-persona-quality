@@ -1,0 +1,30 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+$lang['required']          = 'Kolom {field} harus diisi.';
+$lang['isset']             = 'Kolom {field} harus memiliki nilai.';
+$lang['valid_email']       = 'Kolom {field} harus berisi alamat email yang valid.';
+$lang['valid_emails']      = 'Kolom {field} harus berisi semua alamat email yang valid.';
+$lang['valid_url']         = 'Kolom {field} harus berisi URL yang valid.';
+$lang['valid_ip']          = 'Kolom {field} harus berisi alamat IP yang valid.';
+$lang['min_length']        = 'Kolom {field} harus memiliki panjang setidaknya {param} karakter.';
+$lang['max_length']        = 'Kolom {field} tidak boleh melebihi panjang {param} karakter.';
+$lang['exact_length']      = 'Kolom {field} harus memiliki panjang tepat {param} karakter.';
+$lang['alpha']             = 'Kolom {field} hanya boleh berisi huruf.';
+$lang['alpha_numeric']     = 'Kolom {field} hanya boleh berisi huruf dan angka.';
+$lang['alpha_dash']        = 'Kolom {field} hanya boleh berisi huruf, angka, garis bawah, dan tanda hubung.';
+$lang['numeric']           = 'Kolom {field} hanya boleh berisi angka.';
+$lang['is_numeric']        = 'Kolom {field} harus berisi nilai numerik.';
+$lang['integer']           = 'Kolom {field} harus berisi bilangan bulat.';
+$lang['regex_match']       = 'Kolom {field} tidak dalam format yang benar.';
+$lang['matches']           = 'Kolom {field} tidak cocok dengan kolom {param}.';
+$lang['is_unique']         = 'Kolom {field} harus memiliki nilai unik.';
+$lang['is_natural']        = 'Kolom {field} harus berisi angka positif.';
+$lang['is_natural_no_zero'] = 'Kolom {field} harus berisi angka lebih besar dari nol.';
+$lang['decimal']           = 'Kolom {field} harus berisi angka desimal.';
+$lang['less_than']         = 'Kolom {field} harus berisi angka kurang dari {param}.';
+$lang['less_than_equal_to'] = 'Kolom {field} harus berisi angka kurang dari atau sama dengan {param}.';
+$lang['greater_than']      = 'Kolom {field} harus berisi angka lebih besar dari {param}.';
+$lang['greater_than_equal_to'] = 'Kolom {field} harus berisi angka lebih besar dari atau sama dengan {param}.';
+$lang['alpha_space']       = 'Kolom {field} hanya boleh berisi huruf dan spasi.';
+$lang['alpha_dash_space']  = 'Kolom {field} hanya boleh berisi huruf, angka, garis bawah, tanda hubung, dan spasi.';

@@ -9,7 +9,7 @@ class Home extends CI_Controller
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->helper('date');
-		$this->load->model(array('M_Client', 'M_Setting', 'M_Team', 'M_Article', 'M_Service'));
+		$this->load->model(array('M_Client', 'M_Setting', 'M_Team', 'M_Article', 'M_Service', 'M_Testimonial'));
 	}
 
 	public function index()
@@ -22,6 +22,7 @@ class Home extends CI_Controller
 			'values' => $this->M_Setting->our_values(),
 			'teams' => $this->M_Team->list(),
 			'articles' => $this->M_Article->list_limit('3', '0'),
+			'testimonials' => $this->M_Testimonial->list(),
 		];
 
 		$this->load->view('index', $data);

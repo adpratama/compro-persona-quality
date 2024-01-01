@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper('string');
-		$this->load->model('M_Auth');
+		$this->load->model(['M_Auth', 'M_Testimonial']);
 		$this->load->helper('date');
 
 		if (!$this->session->userdata('is_logged_in')) {
@@ -26,7 +26,8 @@ class Dashboard extends CI_Controller
 		$data = [
 			'title' => 'Dashboard',
 			'pages' => 'pages/dashboard/v_dashboard',
-			'user' => $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array()
+			'user' => $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array(),
+			'testimonials' => $this->M_Testimonial->pending(),
 		];
 		$this->load->view('pages/dashboard/index', $data);
 	}

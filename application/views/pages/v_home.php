@@ -306,57 +306,31 @@
                 <h3 class="column-title">Testimonials</h3>
 
                 <div id="testimonial-slide" class="testimonial-slide">
-                    <div class="item">
-                        <div class="quote-item">
-                            <span class="quote-text">
-                                Persona Quality telah menjadi mitra yang sangat berharga bagi departemen SDM kami. Mereka memberikan layanan konsultasi psikologi yang terbaik dan menyeluruh untuk memastikan perekrutan dan pengembangan karyawan berjalan lancar. Profesionalisme mereka sangat mengesankan.
-                            </span>
+                    <?php
+                    if ($testimonials) {
+                        foreach ($testimonials as $t) { ?>
+                            <div class="item">
+                                <div class="quote-item">
+                                    <span class="quote-text">
+                                        <?= $t->content ?>
+                                    </span>
 
-                            <div class="quote-item-footer">
-                                <img loading="lazy" class="testimonial-thumb" src="<?= base_url() ?>assets/front/images/clients/bank-syariah-indonesia-bsi.png" alt="testimonial">
-                                <div class="quote-item-info">
-                                    <h3 class="quote-author">Gabriel Denis</h3>
-                                    <span class="quote-subtext">Chairman, OKT</span>
-                                </div>
+                                    <div class="quote-item-footer">
+                                        <div class="quote-item-info">
+                                            <h3 class="quote-author"><?= $t->name ?></h3>
+                                            <span class="quote-subtext"><?= $t->title ?></span>
+                                        </div>
+                                    </div>
+                                </div><!-- Quote item end -->
                             </div>
-                        </div><!-- Quote item end -->
-                    </div>
-                    <!--/ Item 1 end -->
-
-                    <div class="item">
-                        <div class="quote-item">
-                            <span class="quote-text">
-                                Kami berterima kasih kepada tim Persona Quality atas kontribusi luar biasa mereka dalam membantu kami membangun tim yang tangguh. Pendekatan mereka yang berfokus pada asesmen psikologis telah membantu meningkatkan kinerja dan keharmonisan tim kami.
-                            </span>
-
-                            <div class="quote-item-footer">
-                                <img loading="lazy" class="testimonial-thumb" src="<?= base_url() ?>assets/front/images/clients/capella-group.png" alt="testimonial">
-                                <div class="quote-item-info">
-                                    <h3 class="quote-author">Weldon Cash</h3>
-                                    <span class="quote-subtext">CFO, First Choice</span>
-                                </div>
-                            </div>
-                        </div><!-- Quote item end -->
-                    </div>
-                    <!--/ Item 2 end -->
-
-                    <div class="item">
-                        <div class="quote-item">
-                            <span class="quote-text">
-                                Saya sangat mengapresiasi program pengembangan diri yang diselenggarakan oleh Persona Quality. Mereka tidak hanya membantu perusahaan mencari talenta terbaik tetapi juga berkomitmen untuk meningkatkan kemampuan dan kesejahteraan karyawan.
-                            </span>
-
-                            <div class="quote-item-footer">
-                                <img loading="lazy" class="testimonial-thumb" src="<?= base_url() ?>assets/front/images/clients/chevron.png" alt="testimonial">
-                                <div class="quote-item-info">
-                                    <h3 class="quote-author">Minter Puchan</h3>
-                                    <span class="quote-subtext">Director, AKT</span>
-                                </div>
-                            </div>
-                        </div><!-- Quote item end -->
-                    </div>
-                    <!--/ Item 3 end -->
-
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <h4>Tidak ada testimoni yang ditampilkan</h4>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <!--/ Testimonial carousel end-->
             </div><!-- Col end -->

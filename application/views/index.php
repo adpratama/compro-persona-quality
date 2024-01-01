@@ -196,6 +196,7 @@
 												<li class="<?= ($this->uri->segment(2) == 'about') ? 'active' : '' ?>"><a href="<?= base_url('company/about') ?>">Tentang kami</a></li>
 												<li class="<?= ($this->uri->segment(2) == 'team') ? 'active' : '' ?>"><a href="<?= base_url('company/team') ?>">Tim kami</a></li>
 												<li class="<?= ($this->uri->segment(2) == 'client') ? 'active' : '' ?>"><a href="<?= base_url('company/client') ?>">Klien kami</a></li>
+												<li class="<?= ($this->uri->segment(2) == 'testimonial') ? 'active' : '' ?>"><a href="<?= base_url('company/testimonial') ?>">Testimoni</a></li>
 											</ul>
 										</li>
 										<li class="nav-item dropdown <?= ($this->uri->segment(1) == "service") ? 'active' : '' ?>">

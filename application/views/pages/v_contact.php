@@ -80,7 +80,6 @@
             <!-- Col 3 end -->
 
         </div>
-        <!-- 1st row end -->
     </div>
     <!-- Conatiner end -->
 </section>

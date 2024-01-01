@@ -135,6 +135,13 @@
                     <span>Services</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link  <?php if ($this->uri->segment(2) != 'testimonial') echo 'collapsed' ?>" href="<?= base_url('dash/testimonial') ?>">
+                    <i class="bi bi-person"></i>
+                    <span>Testimonials</span>
+                </a>
+            </li>
             <!-- End Dashboard Nav -->
 
             <li class="nav-heading">Settings</li>
