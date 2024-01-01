@@ -71,7 +71,7 @@
         <!-- 1st row end -->
         <div class="row mt-5">
             <div class="col-md-12">
-                <h3 class="column-title">We love to hear</h3>
+                <h3 class="column-title">Silahkan berikan testimoni anda</h3>
 
                 <?= $this->session->flashdata('message_name') ?>
                 <!-- contact form works with formspree.io  -->
