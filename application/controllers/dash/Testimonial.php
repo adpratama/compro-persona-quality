@@ -39,9 +39,6 @@ class Testimonial extends CI_Controller
     {
         $data = ['status' => $status];
 
-        // print_r($data);
-        // exit;
-
         if ($this->M_Testimonial->approve($id, $data)) {
             $this->session->set_flashdata('message_name', $successMessage);
         } else {

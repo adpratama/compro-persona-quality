@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="banner-heading">
-                        <h1 class="banner-title">Kontak</h1>
+                        <h1 class="banner-title">Testimoni</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Kontak</li>
+                                <li class="breadcrumb-item active" aria-current="page">Testimoni</li>
                             </ol>
                         </nav>
                     </div>

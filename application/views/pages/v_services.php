@@ -1,4 +1,4 @@
-<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url() ?>assets/front/images/banner/banner8.jpg)">
+<div id="banner-area" class="banner-area" style="background-image:url(<?= base_url() ?>assets/front/images/banner/<?= $service['banner'] ?>)">
     <div class="banner-text">
         <div class="container">
             <div class="row">
